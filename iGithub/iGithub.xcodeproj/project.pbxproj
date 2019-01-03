@@ -122,6 +122,7 @@
 			children = (
 				36AE694C21DDB25F00C9A656 /* Application */,
 				36AE694D21DDB26A00C9A656 /* Modules */,
+				88C63BF121DE49A50027FF47 /* Network */,
 				36AE694B21DDB24700C9A656 /* SupportingFiles */,
 			);
 			path = iGithub;
@@ -252,6 +253,13 @@
 				1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		88C63BF121DE49A50027FF47 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

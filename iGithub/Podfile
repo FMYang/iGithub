@@ -8,7 +8,7 @@ target 'iGithub' do
   use_frameworks!
 
   # Pods for iGithub
-  pod 'Moya'
+  pod 'RxMoya'
   pod 'Kingfisher'
   pod 'SnapKit'
   pod 'HandyJSON'
