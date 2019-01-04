@@ -24,25 +24,25 @@ enum ItemType {
         }
     }
 
-    var itemNormalIcon: UIImage {
+    var itemNormalIcon: UIImage? {
         switch self {
         case .activity:
-            return UIImage(named: "tabbar-activity-normal")!.withRenderingMode(.alwaysOriginal)
+            return UIImage(named: "tabbar-activity-normal")?.withRenderingMode(.alwaysOriginal)
         case .hot:
-            return UIImage(named: "tabbar-hot-normal")!.withRenderingMode(.alwaysOriginal)
+            return UIImage(named: "tabbar-hot-normal")?.withRenderingMode(.alwaysOriginal)
         case .me:
-            return UIImage(named: "tabbar-me-normal")!.withRenderingMode(.alwaysOriginal)
+            return UIImage(named: "tabbar-me-normal")?.withRenderingMode(.alwaysOriginal)
         }
     }
 
-    var itemSelectedIcon: UIImage {
+    var itemSelectedIcon: UIImage? {
         switch self {
         case .activity:
-            return UIImage(named: "tabbar-activity-selected")!.withRenderingMode(.alwaysOriginal)
+            return UIImage(named: "tabbar-activity-selected")?.withRenderingMode(.alwaysOriginal)
         case .hot:
-            return UIImage(named: "tabbar-hot-selected")!.withRenderingMode(.alwaysOriginal)
+            return UIImage(named: "tabbar-hot-selected")?.withRenderingMode(.alwaysOriginal)
         case .me:
-            return UIImage(named: "tabbar-me-selected")!.withRenderingMode(.alwaysOriginal)
+            return UIImage(named: "tabbar-me-selected")?.withRenderingMode(.alwaysOriginal)
         }
     }
 
