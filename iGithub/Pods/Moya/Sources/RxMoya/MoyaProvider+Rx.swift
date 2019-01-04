@@ -15,6 +15,9 @@ public extension Reactive where Base: MoyaProviderType {
     ///   - callbackQueue: Callback queue. If nil - queue from provider initializer will be used.
     /// - Returns: Single response object.
     public func request(_ token: Base.Target, callbackQueue: DispatchQueue? = nil) -> Single<Response> {
+        print(token.baseURL)
+        print(token.method)
+        print(token)
         return Single.create { [weak base] single in
             let cancellableToken = base?.request(token, callbackQueue: callbackQueue, progress: nil) { result in
                 switch result {

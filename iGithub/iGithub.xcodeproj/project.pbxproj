@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		047325D9DF886877A66F12DD /* Pods_iGithubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */; };
 		368460FB21DF401900AFF626 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FA21DF401900AFF626 /* Network.swift */; };
-		368460FF21DF407B00AFF626 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FE21DF407B00AFF626 /* Api.swift */; };
+		368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FE21DF407B00AFF626 /* GithubTarget.swift */; };
 		36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE691D21DDB23B00C9A656 /* AppDelegate.swift */; };
 		36AE692321DDB23B00C9A656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692121DDB23B00C9A656 /* Main.storyboard */; };
 		36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692421DDB23D00C9A656 /* Assets.xcassets */; };
@@ -21,6 +21,10 @@
 		36AE695921DDBED000C9A656 /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE695821DDBED000C9A656 /* HotViewController.swift */; };
 		36AE695C21DDBEDF00C9A656 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE695B21DDBEDF00C9A656 /* MeViewController.swift */; };
 		5568BB79ADEA8308EFCC047E /* Pods_iGithub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1368C1448485AE8CDB4C9F5 /* Pods_iGithub.framework */; };
+		88C63BF421DF9E410027FF47 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BF321DF9E410027FF47 /* ActivityViewModel.swift */; };
+		88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BF521DF9EC00027FF47 /* ActivityApi.swift */; };
+		88C63BF921DFA30C0027FF47 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BF821DFA30C0027FF47 /* Activity.swift */; };
+		88C63BFD21DFAA4E0027FF47 /* HandyJSON+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BFC21DFAA4E0027FF47 /* HandyJSON+Rx.swift */; };
 		9E41414319D6E290D933A91F /* Pods_iGithubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3A8211F1EB20EEB55F692 /* Pods_iGithubTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +49,7 @@
 		0DD8075AA15875B820E6AD22 /* Pods-iGithubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		368460FA21DF401900AFF626 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		368460FE21DF407B00AFF626 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		368460FE21DF407B00AFF626 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
 		36AE691A21DDB23B00C9A656 /* iGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AE691D21DDB23B00C9A656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36AE692221DDB23B00C9A656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +68,10 @@
 		36AE695B21DDBEDF00C9A656 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iGithubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A6C0DA001F4697F72DAF49 /* Pods-iGithub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithub.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithub/Pods-iGithub.release.xcconfig"; sourceTree = "<group>"; };
+		88C63BF321DF9E410027FF47 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		88C63BF521DF9EC00027FF47 /* ActivityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityApi.swift; sourceTree = "<group>"; };
+		88C63BF821DFA30C0027FF47 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		88C63BFC21DFAA4E0027FF47 /* HandyJSON+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HandyJSON+Rx.swift"; sourceTree = "<group>"; };
 		8977E11485D0839BB44D523B /* Pods-iGithubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubTests/Pods-iGithubTests.release.xcconfig"; sourceTree = "<group>"; };
 		A08C50957E6D3ED870615D9A /* Pods-iGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithub/Pods-iGithub.debug.xcconfig"; sourceTree = "<group>"; };
 		A3A3A8211F1EB20EEB55F692 /* Pods_iGithubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iGithubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +135,7 @@
 				36AE694C21DDB25F00C9A656 /* Application */,
 				36AE694D21DDB26A00C9A656 /* Modules */,
 				36AE695D21DEFF3700C9A656 /* Network */,
+				88C63BFA21DFAA190027FF47 /* Utils */,
 				36AE694B21DDB24700C9A656 /* SupportingFiles */,
 			);
 			path = iGithub;
@@ -191,6 +200,8 @@
 		36AE695121DDBE7000C9A656 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				88C63BF721DFA3040027FF47 /* Model */,
+				88C63BF221DF9E310027FF47 /* ViewModel */,
 				36AE695621DDBEB000C9A656 /* ViewController */,
 			);
 			path = Activity;
@@ -240,7 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				368460FA21DF401900AFF626 /* Network.swift */,
-				368460FE21DF407B00AFF626 /* Api.swift */,
+				368460FE21DF407B00AFF626 /* GithubTarget.swift */,
+				88C63BF521DF9EC00027FF47 /* ActivityApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -266,6 +278,38 @@
 				1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		88C63BF221DF9E310027FF47 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88C63BF321DF9E410027FF47 /* ActivityViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		88C63BF721DFA3040027FF47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88C63BF821DFA30C0027FF47 /* Activity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88C63BFA21DFAA190027FF47 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				88C63BFB21DFAA240027FF47 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		88C63BFB21DFAA240027FF47 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				88C63BFC21DFAA4E0027FF47 /* HandyJSON+Rx.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,11 +555,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				36AE695C21DDBEDF00C9A656 /* MeViewController.swift in Sources */,
+				88C63BFD21DFAA4E0027FF47 /* HandyJSON+Rx.swift in Sources */,
+				88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */,
 				36AE695921DDBED000C9A656 /* HotViewController.swift in Sources */,
 				368460FB21DF401900AFF626 /* Network.swift in Sources */,
+				88C63BF421DF9E410027FF47 /* ActivityViewModel.swift in Sources */,
+				88C63BF921DFA30C0027FF47 /* Activity.swift in Sources */,
 				36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
-				368460FF21DF407B00AFF626 /* Api.swift in Sources */,
+				368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */,
 				36AE695021DDB2B700C9A656 /* TabbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
