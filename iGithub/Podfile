@@ -8,10 +8,11 @@ target 'iGithub' do
   use_frameworks!
 
   # Pods for iGithub
-  pod 'Moya'
+  pod 'Moya/RxSwift'
   pod 'Kingfisher'
   pod 'SnapKit'
   pod 'HandyJSON'
+  pod 'RxCocoa'
 
   target 'iGithubTests' do
     inherit! :search_paths
