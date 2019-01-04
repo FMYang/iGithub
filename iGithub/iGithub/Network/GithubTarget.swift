@@ -11,16 +11,11 @@ import Moya
 
 protocol GithubTarget: TargetType {
     var params: [String: Any]? {get}
-    var path: String {get}
 }
 
 extension GithubTarget {
     var baseURL: URL {
         return URL(string: "https://api.github.com")!
-    }
-
-    var path: String {
-        return path
     }
 
     var method: Moya.Method {
@@ -39,10 +34,6 @@ extension GithubTarget {
         default:
             return .requestParameters(parameters: params ?? [:], encoding: JSONEncoding.default)
         }
-    }
-
-    var validationType: ValidationType {
-        return .none
     }
 
     var headers: [String: String]? {
