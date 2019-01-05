@@ -13,6 +13,7 @@ target 'iGithub' do
   pod 'SnapKit'
   pod 'HandyJSON'
   pod 'RxCocoa'
+  pod 'FDFullscreenPopGesture'
 
   target 'iGithubTests' do
     inherit! :search_paths

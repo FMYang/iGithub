@@ -15,7 +15,7 @@ protocol GithubTarget: TargetType {
 
 extension GithubTarget {
     var baseURL: URL {
-        return URL(string: "https://api.github.com")!
+        return URL(string: "https://api.github.com/")!
     }
 
     var method: Moya.Method {

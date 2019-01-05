@@ -8,30 +8,66 @@
 
 import UIKit
 import RxSwift
+import SnapKit
+import FDFullscreenPopGesture
 
 class ActivityViewController: UIViewController {
 
     let url = "https://api.github.com/users/FMYang/received_events/public"
+    // https://api.github.com/users/FMYang/received_events?page=3
     
     let activityVM = ActivityViewModel()
     let bag = DisposeBag()
+    var listModel = [ActivityCellViewModel?]()
+
+    lazy var tableView: UITableView = {
+        let view = UITableView()
+        view.dataSource = self
+        view.delegate = self
+        view.sp.registerCellFromNib(cls: ActivityListCell.self)
+        view.estimatedRowHeight = 150
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fd_prefersNavigationBarHidden = true
+        layoutUI()
+
+        activityVM.transformToRepo()
+
+//        activityVM.fetchPublicEvents()
+//            .subscribe(onNext: { [weak self] (result) in
+//                self?.listModel = result
+//                self?.tableView.reloadData()
+//            }, onError: { (error) in
+//                print(error.localizedDescription)
+//            })
+//            .disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        activityVM.fetchPublicEvents()
-            .subscribe(onNext: { (result) in
-                if result.count > 0 {
-                    print(result[0]?.id)
-                }
-            }, onError: { (error) in
-                print(error.localizedDescription)
-            })
-            .disposed(by: bag)
     }
 
+    // MARK: - fuction
+    func layoutUI() {
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+    }
+
+}
+
+extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0//self.listModel.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.sp.dequeueReuseCell(ActivityListCell.self, indexPath: indexPath)
+//        cell.bindData(vm: self.listModel[indexPath.row])
+        return cell
+    }
 }

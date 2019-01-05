@@ -10,7 +10,22 @@ import Foundation
 import Moya
 import RxSwift
 
-let provider = MoyaProvider<MultiTarget>()
+let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<MultiTarget>.RequestResultClosure) in
+    do {
+        var urlRequest = try endpoint.urlRequest()
+        print("request url: \(urlRequest)")
+        urlRequest.timeoutInterval = 20
+        done(.success(urlRequest))
+    } catch MoyaError.requestMapping(let url) {
+        done(.failure(MoyaError.requestMapping(url)))
+    } catch MoyaError.parameterEncoding(let error) {
+        done(.failure(MoyaError.parameterEncoding(error)))
+    } catch {
+        done(.failure(MoyaError.underlying(error, nil)))
+    }
+}
+
+let provider = MoyaProvider<MultiTarget>(requestClosure: requestClosure)
 
 /// 网路请求日志打印
 ///
@@ -27,15 +42,19 @@ func networkLog(url: String,
                 httpStatusCode: Int = 404) {
     var output: String = ""
     output += "======================== BEGIN REQUEST =========================\n\r"
-    output += "请求URL: \n\(url)\n\r"
-    output += "请求参数: \n\(params ?? "nil")\n\r"
-    output += "http状态码: \n\(httpStatusCode)\n\r"
-    output += "返回结果: \n\(response ?? error ?? "")\n\r"
+    output += "request url: \n\(url)\n\r"
+    output += "request params: \n\(params ?? "nil")\n\r"
+    output += "http status code: \n\(httpStatusCode)\n\r"
+    output += "response result: \n\(response ?? error ?? "")\n\r"
     output += "======================== END REQUEST ===========================\n\r"
     print(output)
 }
 
 class Network {
+    /// 网络请求方法
+    ///
+    /// - Parameter target: 目标target
+    /// - Returns: Observable<Response>
     static func request(_ target: GithubTarget) -> Observable<Response> {
         return Observable.create({ (observer) -> Disposable in
             provider.request(MultiTarget(target), completion: { result in
@@ -57,7 +76,6 @@ class Network {
                     httpStatusCode = error.response?.statusCode
                     data = error.errorDescription
                     errorResult = error
-                    print(error.localizedDescription)
                     observer.onError(error)
                 }
                 networkLog(url: target.baseURL.absoluteString + target.path, params: target.params, response: data, error: errorResult, httpStatusCode: httpStatusCode ?? 404)
