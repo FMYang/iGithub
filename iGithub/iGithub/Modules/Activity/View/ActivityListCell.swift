@@ -39,5 +39,9 @@ class ActivityListCell: UITableViewCell {
         titleLabel.text = vm.title
         timeLabel.text = vm.updateTime
         repoNameLabel.text = vm.repoTitle
+        repoDescriptionLabel.text = vm.repoDescription
+        repoLanguageLabel.text = vm.repoLangauge
+        repoStarLabel.text = vm.repoStar
+        repoUpdateTimeLabel.text = vm.repoUpdateTime
     }
 }

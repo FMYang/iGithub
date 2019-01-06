@@ -49,3 +49,10 @@ struct Repo: HandyJSON {
 struct PayLoad: HandyJSON {
     var action: String?
 }
+
+struct RepoDetail: HandyJSON {
+    var description: String?
+    var stargazers_count: Int = 0
+    var language: String?
+    var updated_at: String?
+}

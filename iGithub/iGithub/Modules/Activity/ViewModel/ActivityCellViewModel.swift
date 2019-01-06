@@ -18,12 +18,18 @@ struct ActivityCellViewModel {
     var repoStar: String?
     var repoUpdateTime: String?
 
-    init(model: Activity?) {
-        self.avatar = model?.actor?.avatar_url
-        if let name = model?.actor?.display_login, let action = model?.payload?.action, let repo = model?.repo?.name {
+    init(activity: Activity?, repo: RepoDetail?) {
+        self.avatar = activity?.actor?.avatar_url
+        if let name = activity?.actor?.display_login, let action = activity?.payload?.action, let repo = activity?.repo?.name {
             self.title = name + " " + action + " " + repo
         }
-        self.updateTime = model?.created_at
-        self.repoTitle = model?.repo?.name
+        self.updateTime = activity?.created_at
+        self.repoTitle = activity?.repo?.name
+        
+        // 2
+        self.repoDescription = repo?.description
+        self.repoLangauge = repo?.language
+        self.repoStar = String(describing: repo?.stargazers_count ?? 0)
+        self.repoUpdateTime = repo?.updated_at
     }
 }

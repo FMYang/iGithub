@@ -34,16 +34,13 @@ class ActivityViewController: UIViewController {
         self.fd_prefersNavigationBarHidden = true
         layoutUI()
 
-        activityVM.transformToRepo()
-
-//        activityVM.fetchPublicEvents()
-//            .subscribe(onNext: { [weak self] (result) in
-//                self?.listModel = result
-//                self?.tableView.reloadData()
-//            }, onError: { (error) in
-//                print(error.localizedDescription)
-//            })
-//            .disposed(by: bag)
+        activityVM.fetchActivityAndRepo().subscribe(onNext: { (cellModels) in
+            self.listModel = cellModels
+            self.tableView.reloadData()
+        }, onError: { (error) in
+            print(error.localizedDescription)
+        })
+        .disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,12 +59,12 @@ class ActivityViewController: UIViewController {
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0//self.listModel.count
+        return self.listModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.sp.dequeueReuseCell(ActivityListCell.self, indexPath: indexPath)
-//        cell.bindData(vm: self.listModel[indexPath.row])
+        cell.bindData(vm: self.listModel[indexPath.row])
         return cell
     }
 }
