@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		047325D9DF886877A66F12DD /* Pods_iGithubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */; };
+		3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3654BED721E2EDAA00694BAA /* UIImage+Round.swift */; };
 		368460FB21DF401900AFF626 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FA21DF401900AFF626 /* Network.swift */; };
 		368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FE21DF407B00AFF626 /* GithubTarget.swift */; };
 		3684610321E0594900AFF626 /* ActivityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684610121E0594900AFF626 /* ActivityListCell.swift */; };
@@ -17,6 +18,8 @@
 		3684610F21E0835900AFF626 /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684610E21E0835900AFF626 /* Namespace.swift */; };
 		3684611221E0866200AFF626 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684611121E0866200AFF626 /* UIView+Extension.swift */; };
 		3684611421E0872800AFF626 /* ActivityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684611321E0872800AFF626 /* ActivityCellViewModel.swift */; };
+		368A5AF921E36789002B5F48 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AF821E36789002B5F48 /* String+Date.swift */; };
+		368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AFB21E367FA002B5F48 /* Date+Extension.swift */; };
 		36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE691D21DDB23B00C9A656 /* AppDelegate.swift */; };
 		36AE692321DDB23B00C9A656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692121DDB23B00C9A656 /* Main.storyboard */; };
 		36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692421DDB23D00C9A656 /* Assets.xcassets */; };
@@ -55,6 +58,7 @@
 /* Begin PBXFileReference section */
 		0DD8075AA15875B820E6AD22 /* Pods-iGithubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3654BED721E2EDAA00694BAA /* UIImage+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Round.swift"; sourceTree = "<group>"; };
 		368460FA21DF401900AFF626 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		368460FE21DF407B00AFF626 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
 		3684610121E0594900AFF626 /* ActivityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListCell.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		3684610E21E0835900AFF626 /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		3684611121E0866200AFF626 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3684611321E0872800AFF626 /* ActivityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellViewModel.swift; sourceTree = "<group>"; };
+		368A5AF821E36789002B5F48 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		368A5AFB21E367FA002B5F48 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		36AE691A21DDB23B00C9A656 /* iGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AE691D21DDB23B00C9A656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36AE692221DDB23B00C9A656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3654BED621E2ED8C00694BAA /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				3654BED721E2EDAA00694BAA /* UIImage+Round.swift */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
 		3684610021E0591800AFF626 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +174,22 @@
 				3684611121E0866200AFF626 /* UIView+Extension.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		368A5AF721E3677A002B5F48 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				368A5AF821E36789002B5F48 /* String+Date.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		368A5AFA21E367DB002B5F48 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				368A5AFB21E367FA002B5F48 /* Date+Extension.swift */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 		36AE691121DDB23B00C9A656 = {
@@ -365,6 +395,9 @@
 		88C63BFB21DFAA240027FF47 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				368A5AFA21E367DB002B5F48 /* Date */,
+				368A5AF721E3677A002B5F48 /* String */,
+				3654BED621E2ED8C00694BAA /* UIImage */,
 				88C63BFC21DFAA4E0027FF47 /* MoyaResponse+HandyJSON.swift */,
 				3684610A21E081B000AFF626 /* UIColor */,
 				3684610721E0619900AFF626 /* UITableView */,
@@ -623,6 +656,7 @@
 				3684611221E0866200AFF626 /* UIView+Extension.swift in Sources */,
 				3684610321E0594900AFF626 /* ActivityListCell.swift in Sources */,
 				3684611421E0872800AFF626 /* ActivityCellViewModel.swift in Sources */,
+				368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */,
 				88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */,
 				36AE695921DDBED000C9A656 /* HotViewController.swift in Sources */,
 				3684610921E0619900AFF626 /* UITableView+nib.swift in Sources */,
@@ -632,8 +666,10 @@
 				88C63BF921DFA30C0027FF47 /* Activity.swift in Sources */,
 				36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
+				368A5AF921E36789002B5F48 /* String+Date.swift in Sources */,
 				368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */,
 				3684610F21E0835900AFF626 /* Namespace.swift in Sources */,
+				3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */,
 				36AE695021DDB2B700C9A656 /* TabbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

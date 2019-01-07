@@ -24,7 +24,6 @@ class ActivityListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        avatarImageView.layer.cornerRadius = avatarImageView.sp.height/2
         repoView.layer.borderColor = UIColor(valueRGB: 0xbbbbbb).cgColor
         repoView.layer.borderWidth = 0.5
     }
@@ -35,10 +34,15 @@ class ActivityListCell: UITableViewCell {
 
     func bindData(vm: ActivityCellViewModel?) {
         guard let vm = vm else { return }
-        avatarImageView.kf.setImage(with: URL(string: vm.avatar ?? "")!)
+        let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: avatarImageView.frame.size)
+        if let url = URL(string: vm.avatar ?? "") {
+            avatarImageView.kf.setImage(with: url,
+                                        placeholder: nil,
+                                        options: [.processor(processor)])
+        }
         titleLabel.text = vm.title
         timeLabel.text = vm.updateTime
-        repoNameLabel.text = vm.repoTitle
+        repoNameLabel.text = vm.repoName
         repoDescriptionLabel.text = vm.repoDescription
         repoLanguageLabel.text = vm.repoLangauge
         repoStarLabel.text = vm.repoStar

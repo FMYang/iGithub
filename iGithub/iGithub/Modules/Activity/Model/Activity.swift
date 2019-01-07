@@ -17,6 +17,17 @@ struct Activity: HandyJSON  {
     var payload: PayLoad?
     var repo: Repo?
     var type: String?
+
+    mutating func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.created_at <-- TransformOf(fromJSON: { (rawString) -> String? in
+                print("raw str \(rawString ?? "")")
+                return rawString
+            }, toJSON: { (str) -> String? in
+                print("new str \(str ?? "")")
+                return str
+            })
+    }
 }
 
 /// 用户信息

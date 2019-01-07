@@ -83,4 +83,8 @@ class Network {
             return Disposables.create()
         })
     }
+
+    static func showAlert() {
+        let alert = UIAlertController()
+    }
 }

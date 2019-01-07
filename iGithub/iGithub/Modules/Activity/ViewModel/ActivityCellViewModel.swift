@@ -12,21 +12,22 @@ struct ActivityCellViewModel {
     var avatar: String?
     var title: String = ""
     var updateTime: String?
-    var repoTitle: String?
+    var repoName: String?
     var repoDescription: String?
     var repoLangauge: String?
     var repoStar: String?
     var repoUpdateTime: String?
 
     init(activity: Activity?, repo: RepoDetail?) {
+        // activity data
         self.avatar = activity?.actor?.avatar_url
         if let name = activity?.actor?.display_login, let action = activity?.payload?.action, let repo = activity?.repo?.name {
             self.title = name + " " + action + " " + repo
         }
         self.updateTime = activity?.created_at
-        self.repoTitle = activity?.repo?.name
+        self.repoName = activity?.repo?.name
         
-        // 2
+        // repo data
         self.repoDescription = repo?.description
         self.repoLangauge = repo?.language
         self.repoStar = String(describing: repo?.stargazers_count ?? 0)
