@@ -16,15 +16,14 @@ struct Activity: HandyJSON  {
     var org: Org?
     var payload: PayLoad?
     var repo: Repo?
-    var type: String?
+    var type: EventType?
 
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
             self.created_at <-- TransformOf(fromJSON: { (rawString) -> String? in
-                print("raw str \(rawString ?? "")")
-                return rawString
+                let timeNow = rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.timeFromNow()
+                return timeNow
             }, toJSON: { (str) -> String? in
-                print("new str \(str ?? "")")
                 return str
             })
     }
@@ -66,4 +65,50 @@ struct RepoDetail: HandyJSON {
     var stargazers_count: Int = 0
     var language: String?
     var updated_at: String?
+    
+    mutating func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.updated_at <-- TransformOf(fromJSON: { (rawString) -> String? in
+                let timeNow = rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.timeFromNow()
+                return timeNow
+            }, toJSON: { (str) -> String? in
+                return str
+            })
+    }
+}
+
+enum EventType: String, HandyJSONEnum {
+    case fork = "ForkEvent"
+    case commitComment = "CommitCommentEvent"
+    case create = "CreateEvent"
+    case issueComment = "IssueCommentEvent"
+    case issues = "IssuesEvent"
+    case member = "MemberEvent"
+    case organizationBlock = "OrgBlockEvent"
+    case `public` = "PublicEvent"
+    case pullRequest = "PullRequestEvent"
+    case pullRequestReviewComment = "PullRequestReviewCommentEvent"
+    case push = "PushEvent"
+    case release = "ReleaseEvent"
+    case star = "WatchEvent"
+    case unknown = ""
+    
+    var eventName: String {
+        switch self {
+        case .fork: return "fork"
+        case .commitComment: return "commitComment"
+        case .create: return "create"
+        case .issueComment: return "issueComment"
+        case .issues: return "issues"
+        case .member: return "member"
+        case .organizationBlock: return "organization"
+        case .`public`: return "`public`"
+        case .pullRequest: return "pullRequest"
+        case .pullRequestReviewComment: return "pullRequestReviewComment"
+        case .push: return "push"
+        case .release: return "release"
+        case .star: return "star"
+        case .unknown: return "unknown"
+        }
+    }
 }

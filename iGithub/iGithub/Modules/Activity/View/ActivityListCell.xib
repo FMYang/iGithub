@@ -75,16 +75,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-2e-Ukj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity-star" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-2e-Ukj">
                                 <rect key="frame" x="67" y="129" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="Fxc-o0-Bki"/>
                                     <constraint firstAttribute="height" constant="10" id="mET-vq-8mV"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i5n-Ra-eTc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity-language" translatesAutoresizingMaskIntoConstraints="NO" id="i5n-Ra-eTc">
                                 <rect key="frame" x="15" y="129" width="10" height="10"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="5Xb-og-xnd"/>
                                     <constraint firstAttribute="width" constant="10" id="g9Y-HF-Mp8"/>
@@ -131,8 +131,10 @@
             <connections>
                 <outlet property="avatarImageView" destination="d0B-DV-Ds6" id="IUA-bc-GY7"/>
                 <outlet property="repoDescriptionLabel" destination="Eln-ek-wue" id="YiN-jz-qif"/>
+                <outlet property="repoLanguageImage" destination="i5n-Ra-eTc" id="rbM-YT-AIK"/>
                 <outlet property="repoLanguageLabel" destination="8Er-MD-QNk" id="3Pm-W9-OEr"/>
                 <outlet property="repoNameLabel" destination="XAP-6b-QH1" id="8Q2-Bu-8a3"/>
+                <outlet property="repoStarImage" destination="xZF-2e-Ukj" id="ZRc-vy-ZYw"/>
                 <outlet property="repoStarLabel" destination="K5U-zz-0l4" id="MlT-QR-7fa"/>
                 <outlet property="repoUpdateTimeLabel" destination="GlB-Ka-n9x" id="TXh-PA-mZv"/>
                 <outlet property="repoView" destination="nCL-Im-Amd" id="Uqz-Ur-ryz"/>
@@ -142,4 +144,8 @@
             <point key="canvasLocation" x="40.799999999999997" y="56.671664167916049"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="activity-language" width="10" height="10"/>
+        <image name="activity-star" width="10" height="10"/>
+    </resources>
 </document>

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImage {
-    func rounded() -> UIImage {
+    func rounded(cornerRadius: Double) -> UIImage {
         let rect = CGRect(origin: .zero, size: self.size)
         UIGraphicsBeginImageContext(self.size)
         UIBezierPath(roundedRect: rect, cornerRadius: rect.size.height/2).addClip()

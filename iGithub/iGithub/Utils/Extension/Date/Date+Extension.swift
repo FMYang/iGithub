@@ -17,11 +17,6 @@ extension Date {
         let currentTime = Date()
         let components = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: self, to: currentTime)
 
-        print(components.day)
-        print(components.hour)
-        print(components.minute)
-        print(components.second)
-
         if components.year! > 1 {
             timeFromNowInWords = "\(components.year!) years ago"
         } else if components.year! == 1 {

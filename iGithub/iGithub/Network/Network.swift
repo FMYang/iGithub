@@ -14,7 +14,7 @@ let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<MultiTa
     do {
         var urlRequest = try endpoint.urlRequest()
         print("request url: \(urlRequest)")
-        urlRequest.timeoutInterval = 20
+        urlRequest.timeoutInterval = 30
         done(.success(urlRequest))
     } catch MoyaError.requestMapping(let url) {
         done(.failure(MoyaError.requestMapping(url)))
@@ -60,31 +60,43 @@ class Network {
             provider.request(MultiTarget(target), completion: { result in
                 var data: Any?
                 var errorResult: Error?
-                var httpStatusCode: Int?
+                var httpStatusCode: Int = 0
                 switch result {
                 case .success(let response):
                     data = try? JSONSerialization.jsonObject(with: response.data)
                     httpStatusCode = response.statusCode
                     do {
+                        // filter http status code
                         let response = try response.filterSuccessfulStatusCodes()
                         observer.onNext(response)
                         observer.onCompleted()
                     } catch {
+                        // http request fails
+                        self.showAlert(String(describing: httpStatusCode), message: error.localizedDescription)
                         observer.onError(error)
                     }
                 case .failure(let error):
-                    httpStatusCode = error.response?.statusCode
+                    httpStatusCode = error.response?.statusCode ?? 0
                     data = error.errorDescription
                     errorResult = error
+                    self.showAlert(String(describing: httpStatusCode), message: error.localizedDescription)
                     observer.onError(error)
                 }
-                networkLog(url: target.baseURL.absoluteString + target.path, params: target.params, response: data, error: errorResult, httpStatusCode: httpStatusCode ?? 404)
+                networkLog(url: target.baseURL.absoluteString + target.path, params: target.params, response: data, error: errorResult, httpStatusCode: httpStatusCode)
             })
             return Disposables.create()
         })
     }
 
-    static func showAlert() {
-        let alert = UIAlertController()
+    static func showAlert(_ title: String = "",
+                          message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "confirm", style: .default) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(confirmAction)
+        if let vc = UIApplication.shared.keyWindow?.rootViewController {
+            vc.present(alert, animated: true, completion: nil)
+        }
     }
 }

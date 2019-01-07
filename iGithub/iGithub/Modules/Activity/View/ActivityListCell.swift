@@ -17,7 +17,10 @@ class ActivityListCell: UITableViewCell {
     @IBOutlet weak var repoView: UIView!
     @IBOutlet weak var repoNameLabel: UILabel!
     @IBOutlet weak var repoDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var repoLanguageImage: UIImageView!
     @IBOutlet weak var repoLanguageLabel: UILabel!
+    @IBOutlet weak var repoStarImage: UIImageView!
     @IBOutlet weak var repoStarLabel: UILabel!
     @IBOutlet weak var repoUpdateTimeLabel: UILabel!
 
@@ -40,7 +43,7 @@ class ActivityListCell: UITableViewCell {
                                         placeholder: nil,
                                         options: [.processor(processor)])
         }
-        titleLabel.text = vm.title
+        titleLabel.attributedText = vm.title
         timeLabel.text = vm.updateTime
         repoNameLabel.text = vm.repoName
         repoDescriptionLabel.text = vm.repoDescription
