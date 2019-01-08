@@ -20,6 +20,7 @@
 		3684611421E0872800AFF626 /* ActivityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684611321E0872800AFF626 /* ActivityCellViewModel.swift */; };
 		368A5AF921E36789002B5F48 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AF821E36789002B5F48 /* String+Date.swift */; };
 		368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AFB21E367FA002B5F48 /* Date+Extension.swift */; };
+		368A5AFF21E44670002B5F48 /* NetworkLogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */; };
 		36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE691D21DDB23B00C9A656 /* AppDelegate.swift */; };
 		36AE692321DDB23B00C9A656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692121DDB23B00C9A656 /* Main.storyboard */; };
 		36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692421DDB23D00C9A656 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		3684611321E0872800AFF626 /* ActivityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellViewModel.swift; sourceTree = "<group>"; };
 		368A5AF821E36789002B5F48 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		368A5AFB21E367FA002B5F48 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogPlugin.swift; sourceTree = "<group>"; };
 		36AE691A21DDB23B00C9A656 /* iGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AE691D21DDB23B00C9A656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36AE692221DDB23B00C9A656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 				368A5AFB21E367FA002B5F48 /* Date+Extension.swift */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		368A5AFD21E4462E002B5F48 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		36AE691121DDB23B00C9A656 = {
@@ -336,6 +346,7 @@
 		36AE695D21DEFF3700C9A656 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				368A5AFD21E4462E002B5F48 /* Plugins */,
 				368460FA21DF401900AFF626 /* Network.swift */,
 				368460FE21DF407B00AFF626 /* GithubTarget.swift */,
 				88C63BF521DF9EC00027FF47 /* ActivityApi.swift */,
@@ -671,6 +682,7 @@
 				3684610F21E0835900AFF626 /* Namespace.swift in Sources */,
 				3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */,
 				36AE695021DDB2B700C9A656 /* TabbarController.swift in Sources */,
+				368A5AFF21E44670002B5F48 /* NetworkLogPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
