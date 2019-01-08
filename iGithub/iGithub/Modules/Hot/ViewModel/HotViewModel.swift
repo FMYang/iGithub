@@ -12,9 +12,13 @@ import RxSwift
 class HotViewModel {
     func fetchPopularRepo(q: String,
                           sort: String,
-                          page: Int) -> Observable<RepoModel?> {
+                          page: Int) -> Observable<[HotItemViewModel?]> {
         return Network.request(HotApi.searchPopular(q: q, sort: sort, page: page))
             .asObservable()
             .mapObject(type: RepoModel.self)
+            .flatMap({ (repoModel) -> Observable<[HotItemViewModel?]> in
+                let items = repoModel?.items.map { return $0.map { return HotItemViewModel(item: $0) }}
+                return Observable.from(optional: items)
+            })
     }
 }

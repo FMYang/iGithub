@@ -55,14 +55,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-7j-Msa">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity-language" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-7j-Msa">
                         <rect key="frame" x="15" y="146.5" width="10" height="10"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="T0q-CU-dbu"/>
                             <constraint firstAttribute="height" constant="10" id="W6l-Gc-RB6"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-0D-JgP">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity-star" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-0D-JgP">
                         <rect key="frame" x="113" y="146.5" width="10" height="10"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="uJD-m4-Ohe"/>
@@ -93,7 +93,19 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="languageLabel" destination="6gz-sP-o6W" id="vWf-3c-NtI"/>
+                <outlet property="licenceNameLabel" destination="1Bd-dH-dCE" id="sok-e6-JfA"/>
+                <outlet property="repoDescriptionLabel" destination="1xg-BW-a0k" id="Amy-Cv-KgI"/>
+                <outlet property="repoNameLabel" destination="Owg-5l-TWA" id="scP-iV-lel"/>
+                <outlet property="repoStarLabel" destination="w3u-0q-oLs" id="UqQ-el-Py2"/>
+                <outlet property="updateTimeLabel" destination="b49-T4-jLU" id="kfV-Ug-If2"/>
+            </connections>
             <point key="canvasLocation" x="-219.19999999999999" y="-44.07796101949026"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="activity-language" width="10" height="10"/>
+        <image name="activity-star" width="10" height="10"/>
+    </resources>
 </document>

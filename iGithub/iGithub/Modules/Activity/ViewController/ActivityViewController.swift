@@ -31,9 +31,9 @@ class ActivityViewController: UIViewController {
         self.fd_prefersNavigationBarHidden = true
         layoutUI()
 
-//        activityVM.fetchActivityAndRepo().subscribe(onNext: { (cellModels) in
-//            self.listModel = cellModels
-//            self.tableView.reloadData()
+//        activityVM.fetchActivityAndRepo().subscribe(onNext: { [weak self] (cellModels) in
+//            self?.listModel = cellModels
+//            self?.tableView.reloadData()
 //        }, onError: { (error) in
 //            print(error.localizedDescription)
 //        })

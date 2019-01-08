@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		047325D9DF886877A66F12DD /* Pods_iGithubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */; };
 		36242BDC21E4B10200CBAE0A /* TDWDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */; };
-		36242BDF21E4B34700CBAE0A /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36242BDD21E4B34700CBAE0A /* PopularCell.swift */; };
-		36242BE021E4B34700CBAE0A /* PopularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36242BDE21E4B34700CBAE0A /* PopularCell.xib */; };
 		3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3654BED721E2EDAA00694BAA /* UIImage+Round.swift */; };
 		368460FB21DF401900AFF626 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FA21DF401900AFF626 /* Network.swift */; };
 		368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FE21DF407B00AFF626 /* GithubTarget.swift */; };
@@ -26,9 +24,6 @@
 		368A5AFF21E44670002B5F48 /* NetworkLogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */; };
 		36A0CC1421E47B3D00A63571 /* UIColor+UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1321E47B3D00A63571 /* UIColor+UIHelper.swift */; };
 		36A0CC1921E493B700A63571 /* HotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1821E493B700A63571 /* HotApi.swift */; };
-		36A0CC1C21E4954600A63571 /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1B21E4954600A63571 /* HotViewController.swift */; };
-		36A0CC1E21E4955500A63571 /* HotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1D21E4955500A63571 /* HotViewModel.swift */; };
-		36A0CC2121E4A29900A63571 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC2021E4A29900A63571 /* Repo.swift */; };
 		36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE691D21DDB23B00C9A656 /* AppDelegate.swift */; };
 		36AE692321DDB23B00C9A656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692121DDB23B00C9A656 /* Main.storyboard */; };
 		36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AE692421DDB23D00C9A656 /* Assets.xcassets */; };
@@ -39,6 +34,12 @@
 		36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE695421DDBEAA00C9A656 /* ActivityViewController.swift */; };
 		36AE695C21DDBEDF00C9A656 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE695B21DDBEDF00C9A656 /* MeViewController.swift */; };
 		5568BB79ADEA8308EFCC047E /* Pods_iGithub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1368C1448485AE8CDB4C9F5 /* Pods_iGithub.framework */; };
+		8836180721E4F2C500715D80 /* PopularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883617FF21E4F2C500715D80 /* PopularCell.xib */; };
+		8836180821E4F2C500715D80 /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836180021E4F2C500715D80 /* PopularCell.swift */; };
+		8836180921E4F2C500715D80 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836180221E4F2C500715D80 /* Repo.swift */; };
+		8836180A21E4F2C500715D80 /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836180421E4F2C500715D80 /* HotViewController.swift */; };
+		8836180B21E4F2C500715D80 /* HotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836180621E4F2C500715D80 /* HotViewModel.swift */; };
+		8836180D21E4F3A500715D80 /* HotItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836180C21E4F3A500715D80 /* HotItemViewModel.swift */; };
 		88C63BF421DF9E410027FF47 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BF321DF9E410027FF47 /* ActivityViewModel.swift */; };
 		88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BF521DF9EC00027FF47 /* ActivityApi.swift */; };
 		88C63BF921DFA30C0027FF47 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C63BF821DFA30C0027FF47 /* Activity.swift */; };
@@ -67,8 +68,6 @@
 		0DD8075AA15875B820E6AD22 /* Pods-iGithubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWDropDownMenu.swift; sourceTree = "<group>"; };
-		36242BDD21E4B34700CBAE0A /* PopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
-		36242BDE21E4B34700CBAE0A /* PopularCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCell.xib; sourceTree = "<group>"; };
 		3654BED721E2EDAA00694BAA /* UIImage+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Round.swift"; sourceTree = "<group>"; };
 		368460FA21DF401900AFF626 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		368460FE21DF407B00AFF626 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
@@ -84,9 +83,6 @@
 		368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogPlugin.swift; sourceTree = "<group>"; };
 		36A0CC1321E47B3D00A63571 /* UIColor+UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+UIHelper.swift"; sourceTree = "<group>"; };
 		36A0CC1821E493B700A63571 /* HotApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotApi.swift; sourceTree = "<group>"; };
-		36A0CC1B21E4954600A63571 /* HotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
-		36A0CC1D21E4955500A63571 /* HotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewModel.swift; sourceTree = "<group>"; };
-		36A0CC2021E4A29900A63571 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		36AE691A21DDB23B00C9A656 /* iGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AE691D21DDB23B00C9A656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36AE692221DDB23B00C9A656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +99,12 @@
 		36AE695421DDBEAA00C9A656 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		36AE695B21DDBEDF00C9A656 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iGithubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		883617FF21E4F2C500715D80 /* PopularCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularCell.xib; sourceTree = "<group>"; };
+		8836180021E4F2C500715D80 /* PopularCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
+		8836180221E4F2C500715D80 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		8836180421E4F2C500715D80 /* HotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
+		8836180621E4F2C500715D80 /* HotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotViewModel.swift; sourceTree = "<group>"; };
+		8836180C21E4F3A500715D80 /* HotItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotItemViewModel.swift; sourceTree = "<group>"; };
 		88A6C0DA001F4697F72DAF49 /* Pods-iGithub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithub.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithub/Pods-iGithub.release.xcconfig"; sourceTree = "<group>"; };
 		88C63BF321DF9E410027FF47 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		88C63BF521DF9EC00027FF47 /* ActivityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityApi.swift; sourceTree = "<group>"; };
@@ -232,39 +234,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		36A0CC1521E492F400A63571 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				36A0CC1D21E4955500A63571 /* HotViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		36A0CC1621E492FF00A63571 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				36242BDD21E4B34700CBAE0A /* PopularCell.swift */,
-				36242BDE21E4B34700CBAE0A /* PopularCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		36A0CC1A21E4952E00A63571 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				36A0CC1B21E4954600A63571 /* HotViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		36A0CC1F21E4A28D00A63571 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				36A0CC2021E4A29900A63571 /* Repo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		36AE691121DDB23B00C9A656 = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +346,10 @@
 		36AE695321DDBE7B00C9A656 /* Hot */ = {
 			isa = PBXGroup;
 			children = (
-				36AE695721DDBEC100C9A656 /* ViewController */,
+				8836180121E4F2C500715D80 /* Model */,
+				883617FE21E4F2C500715D80 /* View */,
+				8836180321E4F2C500715D80 /* ViewController */,
+				8836180521E4F2C500715D80 /* ViewModel */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -386,17 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				36AE695421DDBEAA00C9A656 /* ActivityViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		36AE695721DDBEC100C9A656 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				36A0CC1F21E4A28D00A63571 /* Model */,
-				36A0CC1A21E4952E00A63571 /* ViewController */,
-				36A0CC1621E492FF00A63571 /* View */,
-				36A0CC1521E492F400A63571 /* ViewModel */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -442,6 +403,40 @@
 				1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		883617FE21E4F2C500715D80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8836180021E4F2C500715D80 /* PopularCell.swift */,
+				883617FF21E4F2C500715D80 /* PopularCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8836180121E4F2C500715D80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8836180221E4F2C500715D80 /* Repo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8836180321E4F2C500715D80 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8836180421E4F2C500715D80 /* HotViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8836180521E4F2C500715D80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8836180621E4F2C500715D80 /* HotViewModel.swift */,
+				8836180C21E4F3A500715D80 /* HotItemViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		88C63BF221DF9E310027FF47 /* ViewModel */ = {
@@ -596,7 +591,7 @@
 			files = (
 				36AE692821DDB23D00C9A656 /* LaunchScreen.storyboard in Resources */,
 				36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */,
-				36242BE021E4B34700CBAE0A /* PopularCell.xib in Resources */,
+				8836180721E4F2C500715D80 /* PopularCell.xib in Resources */,
 				3684610421E0594900AFF626 /* ActivityListCell.xib in Resources */,
 				36AE692321DDB23B00C9A656 /* Main.storyboard in Resources */,
 			);
@@ -739,25 +734,26 @@
 				3684611221E0866200AFF626 /* UIView+Extension.swift in Sources */,
 				3684610321E0594900AFF626 /* ActivityListCell.swift in Sources */,
 				3684611421E0872800AFF626 /* ActivityCellViewModel.swift in Sources */,
+				8836180B21E4F2C500715D80 /* HotViewModel.swift in Sources */,
 				368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */,
-				36242BDF21E4B34700CBAE0A /* PopularCell.swift in Sources */,
-				36A0CC1C21E4954600A63571 /* HotViewController.swift in Sources */,
-				36A0CC2121E4A29900A63571 /* Repo.swift in Sources */,
 				88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */,
+				8836180921E4F2C500715D80 /* Repo.swift in Sources */,
 				3684610921E0619900AFF626 /* UITableView+nib.swift in Sources */,
 				368460FB21DF401900AFF626 /* Network.swift in Sources */,
+				8836180D21E4F3A500715D80 /* HotItemViewModel.swift in Sources */,
+				8836180A21E4F2C500715D80 /* HotViewController.swift in Sources */,
 				3684610C21E081CA00AFF626 /* UIColor+Extension.swift in Sources */,
 				88C63BF421DF9E410027FF47 /* ActivityViewModel.swift in Sources */,
 				88C63BF921DFA30C0027FF47 /* Activity.swift in Sources */,
 				36A0CC1421E47B3D00A63571 /* UIColor+UIHelper.swift in Sources */,
 				36242BDC21E4B10200CBAE0A /* TDWDropDownMenu.swift in Sources */,
 				36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */,
+				8836180821E4F2C500715D80 /* PopularCell.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
 				36A0CC1921E493B700A63571 /* HotApi.swift in Sources */,
 				368A5AF921E36789002B5F48 /* String+Date.swift in Sources */,
 				368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */,
 				3684610F21E0835900AFF626 /* Namespace.swift in Sources */,
-				36A0CC1E21E4955500A63571 /* HotViewModel.swift in Sources */,
 				3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */,
 				36AE695021DDB2B700C9A656 /* TabbarController.swift in Sources */,
 				368A5AFF21E44670002B5F48 /* NetworkLogPlugin.swift in Sources */,
