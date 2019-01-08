@@ -11,15 +11,24 @@ import Moya
 
 protocol GithubTarget: TargetType {
     var params: [String: Any]? {get}
+    var moyaMethod: Moya.Method {get}
 }
 
 extension GithubTarget {
+    var moyaMethod: Moya.Method {
+        return .get
+    }
+
+    var params: [String: Any]? {
+        return [:]
+    }
+
     var baseURL: URL {
         return URL(string: "https://api.github.com/")!
     }
 
     var method: Moya.Method {
-        return .get
+        return moyaMethod
     }
 
     var sampleData: Data {

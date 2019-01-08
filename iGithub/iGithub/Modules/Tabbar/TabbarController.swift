@@ -78,6 +78,6 @@ class TabbarController: UITabBarController {
 
     func appearance() {
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.red], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.sp.theme_red], for: .selected)
     }
 }

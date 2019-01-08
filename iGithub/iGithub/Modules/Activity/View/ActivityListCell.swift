@@ -37,6 +37,7 @@ class ActivityListCell: UITableViewCell {
 
     func bindData(vm: ActivityCellViewModel?) {
         guard let vm = vm else { return }
+        /// image round
         let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: avatarImageView.frame.size)
         if let url = URL(string: vm.avatar ?? "") {
             avatarImageView.kf.setImage(with: url,

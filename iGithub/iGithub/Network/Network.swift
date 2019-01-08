@@ -24,20 +24,30 @@ let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<MultiTa
     }
 }
 
+let activityPlugin = NetworkActivityPlugin { (type, target) in
+    switch type {
+    case .began:
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    case .ended:
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
 let provider = MoyaProvider(endpointClosure: MoyaProvider<MultiTarget>.defaultEndpointMapping,
                             requestClosure: requestClosure,
                             stubClosure: MoyaProvider.neverStub,
                             callbackQueue: nil,
                             manager: MoyaProvider<MultiTarget>.defaultAlamofireManager(),
-                            plugins: [NetworkLogPlugin()])
+                            plugins: [NetworkLogPlugin(),
+                                      activityPlugin])
 
 class Network {
 
     static var isAlertShow = false
 
-    /// 网络请求方法
+    /// network request
     ///
-    /// - Parameter target: 目标target
+    /// - Parameter target: target
     /// - Returns: Observable<Response>
     static func request(_ target: GithubTarget) -> Observable<Response> {
         return Observable.create({ (observer) -> Disposable in

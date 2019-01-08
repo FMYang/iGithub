@@ -12,9 +12,6 @@ import SnapKit
 import FDFullscreenPopGesture
 
 class ActivityViewController: UIViewController {
-
-    let url = "https://api.github.com/users/FMYang/received_events/public"
-    // https://api.github.com/users/FMYang/received_events?page=3
     
     let activityVM = ActivityViewModel()
     let bag = DisposeBag()
@@ -34,13 +31,13 @@ class ActivityViewController: UIViewController {
         self.fd_prefersNavigationBarHidden = true
         layoutUI()
 
-        activityVM.fetchActivityAndRepo().subscribe(onNext: { (cellModels) in
-            self.listModel = cellModels
-            self.tableView.reloadData()
-        }, onError: { (error) in
-            print(error.localizedDescription)
-        })
-        .disposed(by: bag)
+//        activityVM.fetchActivityAndRepo().subscribe(onNext: { (cellModels) in
+//            self.listModel = cellModels
+//            self.tableView.reloadData()
+//        }, onError: { (error) in
+//            print(error.localizedDescription)
+//        })
+//        .disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -15,7 +15,7 @@ public final class NetworkLogPlugin: PluginType {
     var requestHttpHeaders: [String: Any] = [:]
     var requestUrl: String = ""
     var method: String = "Get"
-    var params: [String: Any] = [:]
+    var body: [String: Any]?
     var responseData: Any?
     var responseHttpHeaders: Any?
     var _error: Error?
@@ -24,9 +24,9 @@ public final class NetworkLogPlugin: PluginType {
     public func willSend(_ request: RequestType, target: TargetType) {
         if let request = request.request {
             requestHttpHeaders = request.allHTTPHeaderFields ?? [:]
-            requestUrl = target.baseURL.absoluteString + target.path
+            requestUrl = request.url?.absoluteString ?? ""
             method = target.method.rawValue
-            params = (target as? GithubTarget)?.params ?? [:]
+            body = try? JSONSerialization.jsonObject(with: request.httpBody ?? Data()) as? [String: Any] ?? [:]
         }
     }
 
@@ -43,7 +43,7 @@ public final class NetworkLogPlugin: PluginType {
 
         networkLog(requestHttpHeader: requestHttpHeaders,
                    url: requestUrl,
-                   params: params,
+                   body: body,
                    response: responseData,
                    httpStatusCode: httpStatusCode,
                    responseHttpHeader: responseHttpHeaders,
@@ -62,7 +62,7 @@ public final class NetworkLogPlugin: PluginType {
     ///   - error: error
     func networkLog(requestHttpHeader: [String: Any],
                     url: String,
-                    params: Any? = nil,
+                    body: Any? = nil,
                     response: Any? = nil,
                     httpStatusCode: Int = -1,
                     responseHttpHeader: Any?,
@@ -71,7 +71,7 @@ public final class NetworkLogPlugin: PluginType {
         output += "======================== BEGIN REQUEST =========================\n\r"
         output += "request http header: \n\(requestHttpHeader)\n\r"
         output += "request url: \n\(url)\n\r"
-        output += "request params: \n\(params ?? "nil")\n\r"
+        output += "request body: \n\(body ?? [:])\n\r"
         output += "http status code: \n\(httpStatusCode)\n\r"
         output += "response result: \n\(response ?? error ?? "")\n\r"
         output += "response http header: \n\(responseHttpHeader ?? "")\n\r"

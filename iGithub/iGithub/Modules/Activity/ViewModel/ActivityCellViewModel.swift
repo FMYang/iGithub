@@ -19,7 +19,7 @@ struct ActivityCellViewModel {
     var repoStar: String = "0"
     var repoUpdateTime: String?
 
-    init(activity: Activity?, repo: RepoDetail?) {
+    init(activity: Activity?, repo: ActivityListRepoDetail?) {
         // activity data
         self.avatar = activity?.actor?.avatar_url
         if let name = activity?.actor?.display_login, let action = activity?.type?.eventName, let repo = activity?.repo?.name {
@@ -27,8 +27,8 @@ struct ActivityCellViewModel {
             let titleAttribute = NSMutableAttributedString(string: titleText)
             let nameRange = (titleText as NSString).range(of: name)
             let repoRange = (titleText as NSString).range(of: repo)
-            titleAttribute.addAttributes([.foregroundColor : UIColor.red], range: nameRange)
-            titleAttribute.addAttributes([.foregroundColor : UIColor.red], range: repoRange)
+            titleAttribute.addAttributes([.foregroundColor : UIColor.sp.theme_red], range: nameRange)
+            titleAttribute.addAttributes([.foregroundColor : UIColor.sp.theme_red], range: repoRange)
             self.title = titleAttribute
         }
         self.updateTime = activity?.created_at

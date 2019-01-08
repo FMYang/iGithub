@@ -2,6 +2,41 @@ PODS:
   - Alamofire (4.8.0)
   - FDFullscreenPopGesture (1.1)
   - HandyJSON (4.2.1)
+  - KafkaRefresh (1.2.3):
+    - KafkaRefresh/Category (= 1.2.3)
+    - KafkaRefresh/Configuration (= 1.2.3)
+    - KafkaRefresh/Core (= 1.2.3)
+    - KafkaRefresh/Default (= 1.2.3)
+    - KafkaRefresh/Style (= 1.2.3)
+    - KafkaRefresh/UIKit (= 1.2.3)
+  - KafkaRefresh/Category (1.2.3)
+  - KafkaRefresh/Configuration (1.2.3):
+    - KafkaRefresh/UIKit/FootKit
+    - KafkaRefresh/UIKit/HeadKit
+  - KafkaRefresh/Core (1.2.3):
+    - KafkaRefresh/Category
+  - KafkaRefresh/Default (1.2.3):
+    - KafkaRefresh/Style
+  - KafkaRefresh/Style (1.2.3)
+  - KafkaRefresh/UIKit (1.2.3):
+    - KafkaRefresh/UIKit/FootKit (= 1.2.3)
+    - KafkaRefresh/UIKit/HeadKit (= 1.2.3)
+    - KafkaRefresh/UIKit/LayerKit (= 1.2.3)
+  - KafkaRefresh/UIKit/FootKit (1.2.3):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/HeadKit (1.2.3):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (1.2.3):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Default
   - Kingfisher (5.0.1)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
@@ -20,6 +55,7 @@ PODS:
 DEPENDENCIES:
   - FDFullscreenPopGesture
   - HandyJSON
+  - KafkaRefresh
   - Kingfisher
   - Moya/RxSwift
   - RxCocoa
@@ -30,6 +66,7 @@ SPEC REPOS:
     - Alamofire
     - FDFullscreenPopGesture
     - HandyJSON
+    - KafkaRefresh
     - Kingfisher
     - Moya
     - Result
@@ -42,6 +79,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
+  KafkaRefresh: c9794c5a696eaf00371c18ba385c8c3d114b5bff
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -50,6 +88,6 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: d8ae2fef6965ef9c92d23eda9e1a9d9e2c9824b1
+PODFILE CHECKSUM: 2ab2bb5faddd6dc90f61f1243ae9c5494306f136
 
 COCOAPODS: 1.5.3

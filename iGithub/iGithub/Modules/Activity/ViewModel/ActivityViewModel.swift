@@ -26,11 +26,11 @@ class ActivityViewModel {
             .flatMap { (urls) -> Observable<String?> in
                 return Observable.from(urls)
             }
-            .flatMap({ (url) -> Observable<RepoDetail?> in
+            .flatMap({ (url) -> Observable<ActivityListRepoDetail?> in
                 return Network.request(ActivityApi.activityRepo(repoName:
                     url!))
                     .asObservable()
-                    .mapObject(type: RepoDetail.self)
+                    .mapObject(type: ActivityListRepoDetail.self)
             })
             .toArray()
 

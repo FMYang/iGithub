@@ -9,13 +9,14 @@
 import Foundation
 import HandyJSON
 
+/// Public Event Model
 struct Activity: HandyJSON  {
     var actor: Actor?
     var created_at: String?
     var id: Int?
     var org: Org?
     var payload: PayLoad?
-    var repo: Repo?
+    var repo: ActivityListRepo?
     var type: EventType?
 
     mutating func mapping(mapper: HelpingMapper) {
@@ -29,7 +30,7 @@ struct Activity: HandyJSON  {
     }
 }
 
-/// 用户信息
+/// user info
 struct Actor: HandyJSON {
     var avatar_url: String?
     var display_login: String?
@@ -39,7 +40,7 @@ struct Actor: HandyJSON {
     var url: String?
 }
 
-/// 组织信息
+/// org info
 struct Org: HandyJSON {
     var avatar_url: String?
     var gravatar_id: String?
@@ -48,19 +49,20 @@ struct Org: HandyJSON {
     var url: String?
 }
 
-/// 仓库信息
-struct Repo: HandyJSON {
+/// repo info
+struct ActivityListRepo: HandyJSON {
     var id: Int?
     var name: String?
     var url: String?
 }
 
-/// 用户行为
+/// user payload
 struct PayLoad: HandyJSON {
     var action: String?
 }
 
-struct RepoDetail: HandyJSON {
+/// repo detail
+struct ActivityListRepoDetail: HandyJSON {
     var description: String?
     var stargazers_count: Int = 0
     var language: String?
@@ -77,6 +79,7 @@ struct RepoDetail: HandyJSON {
     }
 }
 
+/// event type enum
 enum EventType: String, HandyJSONEnum {
     case fork = "ForkEvent"
     case commitComment = "CommitCommentEvent"
