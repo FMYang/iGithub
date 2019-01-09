@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		047325D9DF886877A66F12DD /* Pods_iGithubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */; };
 		36242BDC21E4B10200CBAE0A /* TDWDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */; };
+		36417FA421E5CEC3007D2DB3 /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36417FA321E5CEC3007D2DB3 /* SelectedView.swift */; };
+		36417FA621E5CED8007D2DB3 /* SelectedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36417FA521E5CED8007D2DB3 /* SelectedView.xib */; };
+		36417FAA21E5FF4F007D2DB3 /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */; };
 		3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3654BED721E2EDAA00694BAA /* UIImage+Round.swift */; };
 		368460FB21DF401900AFF626 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FA21DF401900AFF626 /* Network.swift */; };
 		368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368460FE21DF407B00AFF626 /* GithubTarget.swift */; };
@@ -68,6 +71,9 @@
 		0DD8075AA15875B820E6AD22 /* Pods-iGithubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWDropDownMenu.swift; sourceTree = "<group>"; };
+		36417FA321E5CEC3007D2DB3 /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
+		36417FA521E5CED8007D2DB3 /* SelectedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedView.xib; sourceTree = "<group>"; };
+		36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		3654BED721E2EDAA00694BAA /* UIImage+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Round.swift"; sourceTree = "<group>"; };
 		368460FA21DF401900AFF626 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		368460FE21DF407B00AFF626 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
@@ -151,6 +157,22 @@
 				36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		36417FA721E5FF38007D2DB3 /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				36417FA821E5FF3D007D2DB3 /* ViewController */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		36417FA821E5FF3D007D2DB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		3654BED621E2ED8C00694BAA /* UIImage */ = {
@@ -308,6 +330,7 @@
 		36AE694D21DDB26A00C9A656 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				36417FA721E5FF38007D2DB3 /* Repo */,
 				36AE695121DDBE7000C9A656 /* Activity */,
 				36AE695321DDBE7B00C9A656 /* Hot */,
 				36AE695221DDBE7600C9A656 /* Me */,
@@ -410,6 +433,8 @@
 			children = (
 				8836180021E4F2C500715D80 /* PopularCell.swift */,
 				883617FF21E4F2C500715D80 /* PopularCell.xib */,
+				36417FA321E5CEC3007D2DB3 /* SelectedView.swift */,
+				36417FA521E5CED8007D2DB3 /* SelectedView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -593,6 +618,7 @@
 				36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */,
 				8836180721E4F2C500715D80 /* PopularCell.xib in Resources */,
 				3684610421E0594900AFF626 /* ActivityListCell.xib in Resources */,
+				36417FA621E5CED8007D2DB3 /* SelectedView.xib in Resources */,
 				36AE692321DDB23B00C9A656 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,6 +763,7 @@
 				8836180B21E4F2C500715D80 /* HotViewModel.swift in Sources */,
 				368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */,
 				88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */,
+				36417FAA21E5FF4F007D2DB3 /* RepoViewController.swift in Sources */,
 				8836180921E4F2C500715D80 /* Repo.swift in Sources */,
 				3684610921E0619900AFF626 /* UITableView+nib.swift in Sources */,
 				368460FB21DF401900AFF626 /* Network.swift in Sources */,
@@ -748,6 +775,7 @@
 				36A0CC1421E47B3D00A63571 /* UIColor+UIHelper.swift in Sources */,
 				36242BDC21E4B10200CBAE0A /* TDWDropDownMenu.swift in Sources */,
 				36AE691E21DDB23B00C9A656 /* AppDelegate.swift in Sources */,
+				36417FA421E5CEC3007D2DB3 /* SelectedView.swift in Sources */,
 				8836180821E4F2C500715D80 /* PopularCell.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
 				36A0CC1921E493B700A63571 /* HotApi.swift in Sources */,

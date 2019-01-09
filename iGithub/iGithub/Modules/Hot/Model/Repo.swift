@@ -94,7 +94,7 @@ struct RepoItem: HandyJSON {
         
         mapper <<<
             self.updated_at <-- TransformOf(fromJSON: { (rawString) -> String? in
-                let timeNow = rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.timeFromNow()
+                let timeNow = "Updated" + (rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.timeFromNow() ?? "")
                 return timeNow
             }, toJSON: { (str) -> String? in
                 return str
