@@ -51,7 +51,6 @@ class ActivityViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-
 }
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {

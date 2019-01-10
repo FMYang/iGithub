@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HotItemViewModel {
+struct PopularItemViewModel {
     var repoName: String?
     var repoDescription: String?
     var licenceName: String?
@@ -23,7 +23,7 @@ struct HotItemViewModel {
         self.licenceName = item.license?.spdx_id
         self.language = item.language
         self.updateTime = item.updated_at
-        self.url = item.url
+        self.url = item.html_url
         if let starCount = item.stargazers_count {
             if starCount > 1000 {
                 self.star = String(format: "%.1f", Double(starCount)/1000.0)+"k"

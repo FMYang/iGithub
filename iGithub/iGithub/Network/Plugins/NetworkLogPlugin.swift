@@ -22,21 +22,29 @@ public final class NetworkLogPlugin: PluginType {
     var httpStatusCode: Int = -1
 
     public func willSend(_ request: RequestType, target: TargetType) {
-        if let request = request.request {
-            requestHttpHeaders = request.allHTTPHeaderFields ?? [:]
-            requestUrl = request.url?.absoluteString ?? ""
-            method = target.method.rawValue
-            body = try? JSONSerialization.jsonObject(with: request.httpBody ?? Data()) as? [String: Any] ?? [:]
-        }
     }
 
     public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         switch result {
         case .success(let response):
+            if let request = response.request {
+                requestHttpHeaders = request.allHTTPHeaderFields ?? [:]
+                requestUrl = request.url?.absoluteString ?? ""
+                method = target.method.rawValue
+                body = try? JSONSerialization.jsonObject(with: request.httpBody ?? Data()) as? [String: Any] ?? [:]
+            }
+
             httpStatusCode = response.statusCode
             responseData = try? JSONSerialization.jsonObject(with: response.data)
             responseHttpHeaders = response.response
         case .failure(let error):
+            if let request = error.response?.request {
+                requestHttpHeaders = request.allHTTPHeaderFields ?? [:]
+                requestUrl = request.url?.absoluteString ?? ""
+                method = target.method.rawValue
+                body = try? JSONSerialization.jsonObject(with: request.httpBody ?? Data()) as? [String: Any] ?? [:]
+            }
+            
             httpStatusCode = error.response?.statusCode ?? -1
             _error = error
         }

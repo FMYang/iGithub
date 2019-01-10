@@ -17,7 +17,7 @@ extension HotApi: GithubTarget {
     var params: [String : Any]? {
         switch self {
         case let .searchPopular(q, sort, page):
-            return ["q": q,
+            return ["q": "stars:>1 language:\(q)",
                     "sort": sort,
                     "page": page]
         }
