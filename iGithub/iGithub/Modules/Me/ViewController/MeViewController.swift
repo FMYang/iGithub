@@ -21,6 +21,7 @@ class MeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fd_prefersNavigationBarHidden = true
         layoutUI()
     }
 
@@ -36,7 +37,7 @@ class MeViewController: UIViewController {
 
 extension MeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,6 +52,7 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return tableView.sp.dequeueHeaderFooter(MeTableHeaderView.self).systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        let height = tableView.sp.dequeueHeaderFooter(MeTableHeaderView.self).systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        return height
     }
 }

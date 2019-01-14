@@ -28,9 +28,11 @@ class HotViewController: UIViewController {
     /// contentView
     lazy var pageScorllView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 0, y: 0, width: screen_width, height: screen_height - (isIphoneX ? 88 : 64))
+        scrollView.frame = CGRect(x: 0, y: IG_NaviHeight, width: screen_width, height: screen_height - IG_NaviHeight)
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false
         }
         scrollView.isPagingEnabled = true
         scrollView.delegate = self
@@ -88,7 +90,7 @@ class HotViewController: UIViewController {
 
         self.addChild(viewController)
 
-        viewController.view.frame = CGRect(x: screen_width * CGFloat(index), y: 0.0, width: screen_width, height: screen_height - (isIphoneX ? 88 : 64))
+        viewController.view.frame = CGRect(x: screen_width * CGFloat(index), y: 0.0, width: screen_width, height: screen_height - IG_NaviHeight - IG_TabbarHeight)
         self.pageScorllView.addSubview(viewController.view)
     }
 

@@ -47,6 +47,8 @@ struct User: HandyJSON {
     var type: String?
     var updated_at: String?
     var url: String?
+    
+    
 }
 
 struct Plan: HandyJSON {

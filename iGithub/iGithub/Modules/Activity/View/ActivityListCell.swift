@@ -42,7 +42,8 @@ class ActivityListCell: UITableViewCell {
         if let url = URL(string: vm.avatar ?? "") {
             avatarImageView.kf.setImage(with: url,
                                         placeholder: nil,
-                                        options: [.processor(processor)])
+                                        options: [.processor(processor),
+                                                  .cacheSerializer(FormatIndicatedCacheSerializer.png)])
         }
         titleLabel.attributedText = vm.title
         timeLabel.text = vm.updateTime

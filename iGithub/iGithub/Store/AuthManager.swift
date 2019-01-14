@@ -13,8 +13,17 @@ class AuthManager {
     static let share = AuthManager()
 
     fileprivate let token_key = "com.iGithub.token"
+    fileprivate let tokenValidated_key = "com.iGithub.tokenValidated"
 
-    var tokenValidated: Bool = false
+    var tokenValidated: Bool {
+        get {
+            return UserDefaults.standard.object(forKey: tokenValidated_key) as? Bool ?? false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: tokenValidated_key)
+            UserDefaults.standard.synchronize()
+        }
+    }
 
     var token: String? {
         get {

@@ -18,3 +18,12 @@ let screen_width = UIScreen.main.bounds.width
 let screen_height = UIScreen.main.bounds.height
 
 let isIphoneX = UIScreen.instancesRespond(to:#selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width:1125,height:2436), (UIScreen.main.currentMode?.size)!) : false
+
+let isIphoneXS = UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 828, height: 1792), (UIScreen.main.currentMode?.size)!) : false
+
+let isIphoneXSOrXR = UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width: 1242, height: 2688), (UIScreen.main.currentMode?.size)!) : false
+
+let isIphoneXOrLater = (isIphoneX || isIphoneXS || isIphoneXSOrXR)
+
+let IG_NaviHeight: CGFloat = isIphoneXOrLater ? 88 : 64
+let IG_TabbarHeight: CGFloat = isIphoneXOrLater ? 83 : 49
