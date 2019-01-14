@@ -8,8 +8,13 @@
 
 import Foundation
 
+// https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
+// https://github.com/settings/applications/965464
+
+let client_id = "5d9a014c274cbae38154"
+let client_secret = "10ae9d865d9007d30e6376a79c0b21821f75702f"
+
 let screen_width = UIScreen.main.bounds.width
 let screen_height = UIScreen.main.bounds.height
 
 let isIphoneX = UIScreen.instancesRespond(to:#selector(getter: UIScreen.main.currentMode)) ? __CGSizeEqualToSize(CGSize(width:1125,height:2436), (UIScreen.main.currentMode?.size)!) : false
-

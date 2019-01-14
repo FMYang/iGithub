@@ -48,4 +48,8 @@ extension GithubTarget {
     var headers: [String: String]? {
         return ["Content-type": "application/json"]
     }
+
+    var authorizationType: AuthorizationType {
+        return .basic
+    }
 }

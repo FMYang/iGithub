@@ -5,7 +5,7 @@
 //  Created by yfm on 2019/1/3.
 //  Copyright © 2019年 com.yfm.www. All rights reserved.
 //
-//  https://github-trending-api.now.sh/repositories?language=All%20languages&since=weekly
+//
 //
 
 import UIKit
@@ -44,6 +44,7 @@ class HotViewController: UIViewController {
 
         setupChildViewControllers()
         layoutUI()
+        self.loadPage(viewController: subViewControllers[0], index: 0)
 
         titleView.rx.controlEvent(UIControlEvents.valueChanged)
             .subscribe(onNext: { [weak self] in

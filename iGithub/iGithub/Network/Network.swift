@@ -10,6 +10,10 @@ import Foundation
 import Moya
 import RxSwift
 
+let tokenPlugin = AccessTokenPlugin { () -> String in
+    return AuthManager.share.token ?? ""
+}
+
 let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<MultiTarget>.RequestResultClosure) in
     do {
         var urlRequest = try endpoint.urlRequest()
@@ -24,6 +28,11 @@ let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<MultiTa
     }
 }
 
+let endpointClosure = { (target: MultiTarget) -> Endpoint in
+    var defaultEndpoint = MoyaProvider<MultiTarget>.defaultEndpointMapping(for: target)
+    return defaultEndpoint.adding(newHTTPHeaderFields: ["Authorization": AuthManager.share.token ?? ""])
+}
+
 let activityPlugin = NetworkActivityPlugin { (type, target) in
     switch type {
     case .began:
@@ -33,13 +42,14 @@ let activityPlugin = NetworkActivityPlugin { (type, target) in
     }
 }
 
-let provider = MoyaProvider(endpointClosure: MoyaProvider<MultiTarget>.defaultEndpointMapping,
+let provider = MoyaProvider(endpointClosure: endpointClosure,
                             requestClosure: requestClosure,
                             stubClosure: MoyaProvider.neverStub,
                             callbackQueue: nil,
                             manager: MoyaProvider<MultiTarget>.defaultAlamofireManager(),
                             plugins: [NetworkLogPlugin(),
-                                      activityPlugin])
+                                      activityPlugin,
+                                      tokenPlugin])
 
 class Network {
 
@@ -69,7 +79,9 @@ class Network {
                         }
                         if !isAlertShow {
                             isAlertShow = !isAlertShow
-                            self.showAlert(String(describing: response.statusCode), message: message)
+                            self.showAlert(String(describing: response.statusCode), message: message, action: {
+                                isAlertShow = false
+                            })
                         }
                         #endif
                         observer.onError(error)
@@ -78,7 +90,9 @@ class Network {
                     #if DEBUG
                     if !isAlertShow {
                         isAlertShow = !isAlertShow
-                        self.showAlert(String(describing: error.response?.statusCode ?? -1), message: error.localizedDescription)
+                        self.showAlert(String(describing: error.response?.statusCode ?? -1), message: error.localizedDescription, action: {
+                            isAlertShow = false
+                        })
                     }
                     #endif
                     observer.onError(error)
@@ -89,10 +103,12 @@ class Network {
     }
 
     static func showAlert(_ title: String = "",
-                          message: String) {
+                          message: String,
+                          action: @escaping ()->()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "confirm", style: .default) { _ in
             alert.dismiss(animated: true, completion: nil)
+            action()
         }
         alert.addAction(confirmAction)
         if let vc = UIApplication.shared.keyWindow?.rootViewController {

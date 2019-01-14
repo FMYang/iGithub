@@ -40,17 +40,23 @@ class PopularViewController: UIViewController {
         layoutUI()
 
         currentLanguage = languauges[0]
-        fetchData()
 
         languageSelectedView.selectedButton.rx.tap
             .subscribe(onNext: {
                 TDWDropDownMenu.show(frame: self.languageSelectedView.conditionView.frame, data: self.languauges, callBack: { [weak self] (str) in
                     self?.languageSelectedView.conditionLabel.text = str
                     self?.currentLanguage = str
-                    self?.fetchData()
+                    self?.tableView.setContentOffset(.zero, animated: false)
+                    self?.tableView.headRefreshControl.beginRefreshing()
                 })
             })
             .disposed(by: bag)
+
+        self.tableView.bindHeadRefreshHandler({ [weak self] in
+            self?.fetchData()
+        }, themeColor: UIColor(valueRGB: 0x007AFF), refreshStyle: .replicatorWoody)
+
+        self.tableView.headRefreshControl.beginRefreshing()
     }
 
     // MARK: - fuction
@@ -74,10 +80,10 @@ class PopularViewController: UIViewController {
             .subscribe(onNext: { [weak self] (result) in
                 self?.items = result
                 self?.tableView.reloadData()
-                }, onError: { (error) in
-                    print(error)
-            }, onCompleted: {
-                print("completed")
+                self?.tableView.headRefreshControl.endRefreshing()
+            }, onError: { [weak self] (error) in
+                print(error)
+                self?.tableView.headRefreshControl.endRefreshing()
             })
             .disposed(by: bag)
     }
