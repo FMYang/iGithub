@@ -26,16 +26,12 @@ extension UIColor {
     static func createImage(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(color.cgColor)
-            context.fill(rect)
-        }
-        let theImage =  UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        if theImage != nil {
-            return theImage!
-        }
-        return nil
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.setFillColor(color.cgColor)
+        ctx?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }
 
