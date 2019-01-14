@@ -12,7 +12,7 @@ target 'iGithub' do
   # network
   pod 'Moya/RxSwift'
 
-  # ui bind
+  # rx cocoa
   pod 'RxCocoa'
 
   # image

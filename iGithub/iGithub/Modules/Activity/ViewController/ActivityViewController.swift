@@ -31,13 +31,13 @@ class ActivityViewController: UIViewController {
         self.fd_prefersNavigationBarHidden = true
         layoutUI()
 
-//        activityVM.fetchActivityAndRepo().subscribe(onNext: { [weak self] (cellModels) in
-//            self?.listModel = cellModels
-//            self?.tableView.reloadData()
-//        }, onError: { (error) in
-//            print(error.localizedDescription)
-//        })
-//        .disposed(by: bag)
+        activityVM.fetchActivityAndRepo().subscribe(onNext: { [weak self] (cellModels) in
+            self?.listModel = cellModels
+            self?.tableView.reloadData()
+        }, onError: { (error) in
+            print(error.localizedDescription)
+        })
+        .disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,6 @@ class ActivityViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-
 }
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {

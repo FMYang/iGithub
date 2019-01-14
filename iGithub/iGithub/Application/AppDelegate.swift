@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,14 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.starLogic()
+        return true
+    }
+}
 
+extension AppDelegate {
+    func starLogic() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
+        if AuthManager.share.tokenValidated {
+            let tabbar = TabbarController()
+            window?.rootViewController = tabbar
+        } else {
+            let loginVC = LoginViewController()
+            window?.rootViewController = loginVC
+        }
+        window?.makeKeyAndVisible()
+    }
+
+    func loginSuccess() {
         let tabbar = TabbarController()
         window?.rootViewController = tabbar
         window?.makeKeyAndVisible()
-        
-        return true
     }
 }
 

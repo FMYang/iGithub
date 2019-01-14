@@ -17,7 +17,7 @@ class TDWDropDownMenu: UIView {
     internal var menuHeight: CGFloat = 200.0
     private var viewFrame: CGRect = .zero
     private let cellIdentify = "ItemCell"
-    private var datasource: [Any] = []
+    private var datasource: [String] = [String]()
 
     public var menuBackgroundColor: UIColor = .clear {
         didSet {
@@ -36,6 +36,10 @@ class TDWDropDownMenu: UIView {
         view.delegate = self
         view.dataSource = self
         view.tableFooterView = UIView()
+        view.layer.cornerRadius = 2
+        view.layer.borderColor = UIColor.darkGray.cgColor
+        view.layer.borderWidth = 0.5
+        view.backgroundColor = UIColor(valueRGB: 0xf2f2f2)
         return view
     }()
 
@@ -57,7 +61,7 @@ class TDWDropDownMenu: UIView {
     // MARK: - public method
     @discardableResult
     static func show(frame: CGRect,
-                     data: [Any],
+                     data: [String],
                      callBack: @escaping (String) -> Void) -> TDWDropDownMenu {
         let menu = self.init(frame: UIScreen.main.bounds)
         menu.show(frame: frame, data: data, callBack: callBack)
@@ -71,7 +75,7 @@ class TDWDropDownMenu: UIView {
 
     // MARK: - private method
     private func show(frame: CGRect,
-                      data: [Any],
+                      data: [String],
                       callBack: @escaping (String) -> Void) {
         self.viewFrame = frame
         self.callBack = callBack
@@ -141,7 +145,7 @@ extension TDWDropDownMenu: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentify, for: indexPath)
-        cell.textLabel?.text = String(indexPath.row)
+        cell.textLabel?.text = self.datasource[indexPath.row]
         return cell
     }
 
@@ -157,7 +161,7 @@ extension TDWDropDownMenu: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let block = self.callBack {
-            block(self.datasource[indexPath.row] as? String ?? "")
+            block(self.datasource[indexPath.row])
         }
 
         self.hide()

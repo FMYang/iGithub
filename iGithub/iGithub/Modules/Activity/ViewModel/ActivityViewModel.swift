@@ -21,7 +21,7 @@ class ActivityViewModel {
     func fetchActivityAndRepo() -> Observable<[ActivityCellViewModel?]> {
         let activitys = fetchPublicEvents()
 
-        // [activity] -> [repo.name] -> [RepoDetail]
+        // [event] -> [repo.name] -> [RepoDetail]
         let repos = activitys.map { return $0.map { return $0?.repo?.name } }
             .flatMap { (urls) -> Observable<String?> in
                 return Observable.from(urls)
@@ -34,7 +34,7 @@ class ActivityViewModel {
             })
             .toArray()
 
-        // [activity] + [RepoDetail] -> [ActivityCellViewModel]
+        // [event] + [RepoDetail] -> [ActivityCellViewModel]
         return Observable.zip(activitys, repos)
             .flatMap { (object) -> Observable<[ActivityCellViewModel?]> in
                 var cellModels = [ActivityCellViewModel]()
@@ -45,6 +45,5 @@ class ActivityViewModel {
                 }
                 return Observable.from(optional: cellModels)
             }
-        
     }
 }

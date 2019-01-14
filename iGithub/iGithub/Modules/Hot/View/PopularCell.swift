@@ -22,7 +22,7 @@ class PopularCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
-    func bindData(vm: HotItemViewModel?) {
+    func bindData(vm: PopularItemViewModel?) {
         repoNameLabel.text = vm?.repoName
         repoDescriptionLabel.text = vm?.repoDescription
         licenceNameLabel.text = vm?.licenceName
