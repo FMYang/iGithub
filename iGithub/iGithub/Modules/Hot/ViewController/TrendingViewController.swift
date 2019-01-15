@@ -28,9 +28,9 @@ class TrendingViewController: UIViewController {
         super.viewDidLoad()
         layoutUI()
 
-        self.tableView.bindHeadRefreshHandler({ [weak self] in
+        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
             self?.fetchData()
-        }, themeColor: UIColor(valueRGB: 0x007AFF), refreshStyle: .replicatorWoody)
+        })
 
         self.tableView.headRefreshControl.beginRefreshing()
     }
@@ -72,6 +72,7 @@ extension TrendingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.cellVMs[indexPath.row]
         let vc = IWebViewController(urlPath: item?.url)
+        vc.webTitle = item?.name
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

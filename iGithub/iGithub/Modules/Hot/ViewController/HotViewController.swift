@@ -22,6 +22,9 @@ class HotViewController: UIViewController {
     lazy var titleView: UISegmentedControl = {
         let view = UISegmentedControl(items: navTitles)
         view.selectedSegmentIndex = 0
+        view.tintColor = UIColor.sp.theme_red
+        view.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.sp.theme_red], for: .normal)
+        view.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
         return view
     }()
 

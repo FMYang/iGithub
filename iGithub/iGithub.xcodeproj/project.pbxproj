@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		047325D9DF886877A66F12DD /* Pods_iGithubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */; };
 		36242BDC21E4B10200CBAE0A /* TDWDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */; };
+		3637745A21EDD55F00B7590C /* UINavigationController+AOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637745921EDD55F00B7590C /* UINavigationController+AOP.swift */; };
+		3637745C21EDD74C00B7590C /* NSObject+AOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637745B21EDD74C00B7590C /* NSObject+AOP.swift */; };
 		36417FA421E5CEC3007D2DB3 /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36417FA321E5CEC3007D2DB3 /* SelectedView.swift */; };
 		36417FA621E5CED8007D2DB3 /* SelectedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36417FA521E5CED8007D2DB3 /* SelectedView.xib */; };
 		36417FAA21E5FF4F007D2DB3 /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */; };
@@ -90,6 +92,8 @@
 		0DD8075AA15875B820E6AD22 /* Pods-iGithubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWDropDownMenu.swift; sourceTree = "<group>"; };
+		3637745921EDD55F00B7590C /* UINavigationController+AOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AOP.swift"; sourceTree = "<group>"; };
+		3637745B21EDD74C00B7590C /* NSObject+AOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+AOP.swift"; sourceTree = "<group>"; };
 		36417FA321E5CEC3007D2DB3 /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
 		36417FA521E5CED8007D2DB3 /* SelectedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedView.xib; sourceTree = "<group>"; };
 		36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,15 @@
 				3697F32521E6E2FD00E2E7A5 /* IWebViewController.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		3637745821EDD55F00B7590C /* AOP */ = {
+			isa = PBXGroup;
+			children = (
+				3637745B21EDD74C00B7590C /* NSObject+AOP.swift */,
+				3637745921EDD55F00B7590C /* UINavigationController+AOP.swift */,
+			);
+			path = AOP;
 			sourceTree = "<group>";
 		};
 		36417FA721E5FF38007D2DB3 /* Repo */ = {
@@ -598,6 +611,7 @@
 		88C63BFA21DFAA190027FF47 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3637745821EDD55F00B7590C /* AOP */,
 				3660B7FC21E7846D00A83BF8 /* Constant */,
 				36242BDA21E4B0CF00CBAE0A /* CustomView */,
 				36A0CC1221E47B2200A63571 /* Helper */,
@@ -909,12 +923,14 @@
 				36A3002B21EC2DC7008D291D /* LoginViewController.swift in Sources */,
 				36C9806A21E8C8830022F2F8 /* TrendingViewModel.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
+				3637745C21EDD74C00B7590C /* NSObject+AOP.swift in Sources */,
 				36A3003A21EC72C3008D291D /* MeViewController.swift in Sources */,
 				36A0CC1921E493B700A63571 /* HotApi.swift in Sources */,
 				368A5AF921E36789002B5F48 /* String+Extension.swift in Sources */,
 				3676371B21EC916D000C7C3F /* MeTableHeaderView.swift in Sources */,
 				368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */,
 				3684610F21E0835900AFF626 /* Namespace.swift in Sources */,
+				3637745A21EDD55F00B7590C /* UINavigationController+AOP.swift in Sources */,
 				3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */,
 				368E4F6821E7450D00EAA132 /* PopularViewController.swift in Sources */,
 				36AE695021DDB2B700C9A656 /* TabbarController.swift in Sources */,

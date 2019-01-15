@@ -14,6 +14,8 @@ class IWebViewController: UIViewController {
 
     let bag = DisposeBag()
 
+    var webTitle: String?
+
     lazy var backButtonItem: UIBarButtonItem = {
         let backButton = UIButton()
         backButton.frame = CGRect(x: 0, y: 0, width: 30, height: 40)
@@ -75,6 +77,8 @@ class IWebViewController: UIViewController {
 
         self.edgesForExtendedLayout = []
 
+        self.title = webTitle
+
         layoutUI()
 
         self.webView.rx.observe(Double.self, #keyPath(WKWebView.estimatedProgress))
@@ -82,12 +86,12 @@ class IWebViewController: UIViewController {
                 self?.progressView.setProgress(Float(progress ?? 0.0), animated: true)
             })
             .disposed(by: bag)
+
+        self.navigationItem.leftBarButtonItems = [backButtonItem]
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        self.navigationItem.leftBarButtonItems = [backButtonItem]
     }
 
     // MARK: - function
@@ -109,10 +113,12 @@ class IWebViewController: UIViewController {
 
 extension IWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.progressView.progress = 0.0
+        self.title = webTitle ?? webView.title
         if webView.canGoBack {
             self.navigationItem.leftBarButtonItems = [backButtonItem, closeButtonItem]
         } else {
@@ -122,5 +128,11 @@ extension IWebViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.progressView.progress = 0.0
+    }
+
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print(navigationAction.request.url?.absoluteString ?? "")
+        print(navigationAction.navigationType.rawValue)
+        decisionHandler(.allow)
     }
 }

@@ -146,6 +146,7 @@ extension TDWDropDownMenu: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentify, for: indexPath)
         cell.textLabel?.text = self.datasource[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         return cell
     }
 

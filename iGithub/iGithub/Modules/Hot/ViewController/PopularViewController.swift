@@ -15,7 +15,7 @@ class PopularViewController: UIViewController {
     let hotVM = PopularViewModel()
     var items = [PopularItemViewModel?]()
     var page = 1
-    let languauges = ["Swift", "Objective-C", "Java", "JavaScript", "Kotlin"]
+    let languauges = ["Swift", "Objective-C", "Java", "JavaScript", "Kotlin", "C", "C++"]
     var currentLanguage = "Swift"
 
     lazy var languageSelectedView: SelectedView = {
@@ -43,7 +43,9 @@ class PopularViewController: UIViewController {
 
         languageSelectedView.selectedButton.rx.tap
             .subscribe(onNext: {
-                TDWDropDownMenu.show(frame: self.languageSelectedView.conditionView.frame, data: self.languauges, callBack: { [weak self] (str) in
+                var frame = self.languageSelectedView.conditionView.frame
+                frame.origin.y += IG_NaviHeight+9
+                TDWDropDownMenu.show(frame: frame, data: self.languauges, callBack: { [weak self] (str) in
                     self?.languageSelectedView.conditionLabel.text = str
                     self?.currentLanguage = str
                     self?.tableView.setContentOffset(.zero, animated: false)
@@ -52,9 +54,9 @@ class PopularViewController: UIViewController {
             })
             .disposed(by: bag)
 
-        self.tableView.bindHeadRefreshHandler({ [weak self] in
+        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
             self?.fetchData()
-        }, themeColor: UIColor(valueRGB: 0x007AFF), refreshStyle: .replicatorWoody)
+        })
 
         self.tableView.headRefreshControl.beginRefreshing()
     }
@@ -103,6 +105,7 @@ extension PopularViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.items[indexPath.row]
         let vc = IWebViewController(urlPath: item?.url)
+        vc.webTitle = item?.repoName
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
