@@ -63,6 +63,7 @@ struct PayLoad: HandyJSON {
 
 /// repo detail
 struct ActivityListRepoDetail: HandyJSON {
+    var id: Int?
     var description: String?
     var stargazers_count: Int = 0
     var language: String?

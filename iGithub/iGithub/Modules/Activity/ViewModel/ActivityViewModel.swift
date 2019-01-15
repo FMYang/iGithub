@@ -20,27 +20,36 @@ class ActivityViewModel {
 
     func fetchActivityAndRepo() -> Observable<[ActivityCellViewModel?]> {
         let activitys = fetchPublicEvents()
-
+        
         // [event] -> [repo.name] -> [RepoDetail]
         let repos = activitys.map { return $0.map { return $0?.repo?.name } }
             .flatMap { (urls) -> Observable<String?> in
                 return Observable.from(urls)
             }
-            .flatMap({ (url) -> Observable<ActivityListRepoDetail?> in
-                return Network.request(ActivityApi.activityRepo(repoName:
-                    url!))
+            .flatMap { (url) -> Observable<ActivityListRepoDetail?> in
+                return Network.request(ActivityApi.activityRepo(repoName:url!))
                     .asObservable()
                     .mapObject(type: ActivityListRepoDetail.self)
-            })
+            }
             .toArray()
-
+        
         // [event] + [RepoDetail] -> [ActivityCellViewModel]
         return Observable.zip(activitys, repos)
             .flatMap { (object) -> Observable<[ActivityCellViewModel?]> in
                 var cellModels = [ActivityCellViewModel]()
                 let (activity, repo) = object
+                
+                // match activity and repo，make sure data correct
                 for i in 0..<activity.count {
-                    let obj = ActivityCellViewModel(activity: activity[i], repo: repo[i])
+                    var matchRepo: ActivityListRepoDetail?
+                    let id = activity[i]?.repo?.id
+                    repo.forEach {
+                        if $0?.id == id {
+                            matchRepo = $0
+                        }
+                    }
+                    
+                    let obj = ActivityCellViewModel(activity: activity[i], repo: matchRepo)
                     cellModels.append(obj)
                 }
                 return Observable.from(optional: cellModels)
