@@ -39,19 +39,20 @@ class ActivityViewModel {
                 var cellModels = [ActivityCellViewModel]()
                 let (activity, repo) = object
                 
-                // match activity and repo，make sure data correct
-                for i in 0..<activity.count {
+                // match activity and repo，make sure data correct, because async request is unordered
+                activity.forEach {
                     var matchRepo: ActivityListRepoDetail?
-                    let id = activity[i]?.repo?.id
+                    let id = $0?.repo?.id
                     repo.forEach {
                         if $0?.id == id {
                             matchRepo = $0
                         }
                     }
-                    
-                    let obj = ActivityCellViewModel(activity: activity[i], repo: matchRepo)
+
+                    let obj = ActivityCellViewModel(activity: $0, repo: matchRepo)
                     cellModels.append(obj)
                 }
+                
                 return Observable.from(optional: cellModels)
             }
     }
