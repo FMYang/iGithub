@@ -13,9 +13,11 @@ class ActivityViewModel {
 
     func fetchPublicEvents() -> Observable<[Activity?]> {
         return
-            Network.request(ActivityApi.publicEvent(userName: "FMYang", page: 1))
+            Network.request(ActivityApi.publicEvent(userName: UserManager.share.userName,
+                                                    page: 1))
                 .asObservable()
                 .mapArray(type: Activity.self)
+                .catchErrorJustReturn([])
     }
 
     func fetchActivityAndRepo() -> Observable<[ActivityCellViewModel?]> {

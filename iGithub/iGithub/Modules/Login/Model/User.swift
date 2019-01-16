@@ -48,16 +48,6 @@ struct User: HandyJSON {
     var type: String?
     var updated_at: String?
     var url: String?
-    
-//    mutating func mapping(mapper: HelpingMapper) {
-//        mapper <<<
-//            self.created_at <-- TransformOf(fromJSON: { (rawString) -> String? in
-//                let timeNow = rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.toString(dateFormat: "yyyy-MM-dd HH:mm:ss")
-//                return timeNow
-//            }, toJSON: { (str) -> String? in
-//                return str
-//            })
-//    }
 }
 
 struct Plan: HandyJSON {

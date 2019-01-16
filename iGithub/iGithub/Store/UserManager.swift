@@ -31,3 +31,9 @@ class UserManager {
         AuthManager.share.removeToken()
     }
 }
+
+extension UserManager {
+    var userName: String {
+        return user?.login ?? ""
+    }
+}

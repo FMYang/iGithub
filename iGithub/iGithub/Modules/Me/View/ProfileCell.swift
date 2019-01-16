@@ -43,6 +43,7 @@ class ProfileCell: UITableViewCell {
         }
         leftTextLabel.text = item?.text
         rightTextLabel.text = item?.detailText
-        hideArrow = !(item?.enabled ?? false)
+//        hideArrow = !(item?.enabled ?? false)
+        rightArrowImageView.isHidden = !(item?.enabled ?? false)
     }
 }
