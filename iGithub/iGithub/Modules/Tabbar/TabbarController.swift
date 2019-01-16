@@ -66,6 +66,8 @@ enum ItemType {
 
 class TabbarController: UITabBarController {
 
+    static let share = TabbarController()
+
     private let items: [ItemType] = [.activity,
                                    .hot,
                                    .me]

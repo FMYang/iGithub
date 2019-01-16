@@ -29,8 +29,7 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         if AuthManager.share.tokenValidated {
-            let tabbar = TabbarController()
-            window?.rootViewController = tabbar
+            window?.rootViewController = TabbarController.share
         } else {
             let loginVC = LoginViewController()
             window?.rootViewController = loginVC
@@ -39,9 +38,15 @@ extension AppDelegate {
     }
 
     func loginSuccess() {
-        let tabbar = TabbarController()
-        window?.rootViewController = tabbar
+        TabbarController.share.selectedIndex = 0
+        window?.rootViewController = TabbarController.share
         window?.makeKeyAndVisible()
+    }
+
+    func logout() {
+        UserManager.share.remove()
+        let loginVC = LoginViewController()
+        window?.rootViewController = loginVC
     }
 }
 
