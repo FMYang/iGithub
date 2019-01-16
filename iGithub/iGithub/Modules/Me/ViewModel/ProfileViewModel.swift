@@ -28,7 +28,7 @@ class ProfileViewModel {
         // build cell data
         var section_0_data = [ProfileItem]()
         var section_1_data = [ProfileItem]()
-        if let email = user.email {
+        if let email = user.email, !email.isEmpty {
             let emailItem = ProfileItem(icon: "setting-email",
                                         text: "Email",
                                         detailText: email,
@@ -37,7 +37,7 @@ class ProfileViewModel {
             section_0_data.append(emailItem)
         }
 
-        if let blog = user.blog {
+        if let blog = user.blog, !blog.isEmpty {
             let blogItem = ProfileItem(icon: "setting-blog",
                                        text: "Blog",
                                        detailText: blog,

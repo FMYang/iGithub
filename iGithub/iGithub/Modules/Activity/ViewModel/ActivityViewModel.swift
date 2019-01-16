@@ -30,6 +30,7 @@ class ActivityViewModel {
                 return Network.request(ActivityApi.activityRepo(repoName:url!))
                     .asObservable()
                     .mapObject(type: ActivityListRepoDetail.self)
+                    .catchErrorJustReturn(nil)
             }
             .toArray()
         
@@ -40,19 +41,21 @@ class ActivityViewModel {
                 let (activity, repo) = object
                 
                 // match activity and repo，make sure data correct, because async request is unordered
-                activity.forEach {
-                    var matchRepo: ActivityListRepoDetail?
-                    let id = $0?.repo?.id
-                    repo.forEach {
-                        if $0?.id == id {
-                            matchRepo = $0
+                let repoArray = repo.filter { return $0 != nil }
+                repoArray.forEach {
+                    if let repo = $0 {
+                        var matchActivity: Activity?
+                        let id = repo.id
+                        activity.forEach {
+                            if $0?.repo?.id == id {
+                                matchActivity = $0
+                            }
                         }
+                        let obj = ActivityCellViewModel(activity: matchActivity, repo: repo)
+                        cellModels.append(obj)
                     }
-
-                    let obj = ActivityCellViewModel(activity: $0, repo: matchRepo)
-                    cellModels.append(obj)
                 }
-                
+
                 return Observable.from(optional: cellModels)
             }
     }
