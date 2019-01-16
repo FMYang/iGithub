@@ -119,7 +119,7 @@ extension IWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.progressView.progress = 0.0
         self.title = webTitle ?? webView.title
-        if webView.canGoBack {
+         if webView.canGoBack {
             self.navigationItem.leftBarButtonItems = [backButtonItem, closeButtonItem]
         } else {
             self.navigationItem.leftBarButtonItems = [backButtonItem]
