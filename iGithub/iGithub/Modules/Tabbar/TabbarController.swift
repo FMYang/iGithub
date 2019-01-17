@@ -74,6 +74,8 @@ class TabbarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // fix: iOS12 TabbarItem jump then back
+        self.tabBar.isTranslucent = false
         self.viewControllers = items.map { $0.getController() }
         appearance()
     }

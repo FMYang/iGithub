@@ -38,13 +38,9 @@ class ActivityListCell: UITableViewCell {
     func bindData(vm: ActivityCellViewModel?) {
         guard let vm = vm else { return }
         /// image round
-        let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: avatarImageView.frame.size)
-        if let url = URL(string: vm.avatar ?? "") {
-            avatarImageView.kf.setImage(with: url,
-                                        placeholder: nil,
-                                        options: [.processor(processor),
-                                                  .cacheSerializer(FormatIndicatedCacheSerializer.png)])
-        }
+        avatarImageView.sp.setImageWithRounded(path: vm.avatar,
+                                               cornerRadius: 25,
+                                               targetSize: avatarImageView.frame.size)
         titleLabel.attributedText = vm.title
         timeLabel.text = vm.updateTime
         repoNameLabel.text = vm.repoName

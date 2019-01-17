@@ -8,6 +8,12 @@
 
 import Foundation
 
+protocol ProfileHeaderViewDelegate: class {
+    func gotoUserReposPage()
+    func gotoFollowersPage()
+    func gotoFollowingPage()
+}
+
 protocol ProfileFooterViewDelegate: class {
     func logout()
 }

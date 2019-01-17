@@ -34,7 +34,7 @@ class ActivityViewController: UIViewController {
         self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
             self?.fetchData()
         })
-        self.tableView.headRefreshControl.beginRefreshing()
+//        self.tableView.headRefreshControl.beginRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {

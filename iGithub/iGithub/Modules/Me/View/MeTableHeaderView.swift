@@ -18,9 +18,33 @@ class MeTableHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var reposLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var reposButton: UIButton!
+    @IBOutlet weak var followersButton: UIButton!
+    @IBOutlet weak var followingButton: UIButton!
 
+    weak var delegate: ProfileHeaderViewDelegate?
+    let bag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        reposButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.delegate?.gotoUserReposPage()
+            })
+            .disposed(by: bag)
+
+        followersButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.delegate?.gotoFollowersPage()
+            })
+            .disposed(by: bag)
+
+        followingButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.delegate?.gotoFollowingPage()
+            })
+            .disposed(by: bag)
     }
     
     func bindData(vm: ProfileHeaderItem?) {
@@ -32,13 +56,9 @@ class MeTableHeaderView: UITableViewHeaderFooterView {
         reposLabel.text = _vm.repos
         followersLabel.text = _vm.followers
         followingLabel.text = _vm.following
-        
-        let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: avatarImageView.frame.size)
-        if let url = URL(string: _vm.avatar ?? "") {
-            avatarImageView.kf.setImage(with: url,
-                                        placeholder: nil,
-                                        options: [.processor(processor),
-                                                  .cacheSerializer(FormatIndicatedCacheSerializer.png)])
-        }
+        avatarImageView.sp.setImageWithRounded(path: _vm.avatar,
+                                               cornerRadius: 25,
+                                               targetSize: avatarImageView.frame.size)
+
     }
 }

@@ -57,6 +57,7 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let view = tableView.sp.dequeueHeaderFooter(MeTableHeaderView.self)
+            view.delegate = self
             view.bindData(vm: profileVM.headerItem)
             return view
         }
@@ -106,5 +107,22 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
 extension MeViewController: ProfileFooterViewDelegate {
     func logout() {
         (UIApplication.shared.delegate as? AppDelegate)?.logout()
+    }
+}
+
+extension MeViewController: ProfileHeaderViewDelegate {
+    func gotoUserReposPage() {
+        let vc = MeReposViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func gotoFollowersPage() {
+        let vc = MeFollowersViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func gotoFollowingPage() {
+        let vc = MeFollowingViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

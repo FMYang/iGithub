@@ -15,6 +15,9 @@
 		36417FA621E5CED8007D2DB3 /* SelectedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36417FA521E5CED8007D2DB3 /* SelectedView.xib */; };
 		36417FAA21E5FF4F007D2DB3 /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */; };
 		364BAA5E21EF33BA00E5C676 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAA5D21EF33BA00E5C676 /* ProfileProtocol.swift */; };
+		364BAA6021F01A3000E5C676 /* MeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAA5F21F01A3000E5C676 /* MeApi.swift */; };
+		364BAA6221F01B1B00E5C676 /* MeReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAA6121F01B1B00E5C676 /* MeReposViewController.swift */; };
+		364BAA6421F01CB900E5C676 /* MeReposViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAA6321F01CB900E5C676 /* MeReposViewModel.swift */; };
 		3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3654BED721E2EDAA00694BAA /* UIImage+Round.swift */; };
 		3655EB7F21E879AD0048DC99 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655EB7D21E879AD0048DC99 /* TrendingCell.swift */; };
 		3655EB8021E879AD0048DC99 /* TrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3655EB7E21E879AD0048DC99 /* TrendingCell.xib */; };
@@ -41,6 +44,15 @@
 		368A5AFF21E44670002B5F48 /* NetworkLogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */; };
 		368E4F6621E744E100EAA132 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E4F6521E744E100EAA132 /* TrendingViewController.swift */; };
 		368E4F6821E7450D00EAA132 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E4F6721E7450D00EAA132 /* PopularViewController.swift */; };
+		3697D85D21F073800066F0A1 /* FollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D85B21F073800066F0A1 /* FollowCell.swift */; };
+		3697D85E21F073800066F0A1 /* FollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3697D85C21F073800066F0A1 /* FollowCell.xib */; };
+		3697D86121F079FD0066F0A1 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86021F079FD0066F0A1 /* UIImageView+Kingfisher.swift */; };
+		3697D86321F07D210066F0A1 /* FollowUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86221F07D210066F0A1 /* FollowUser.swift */; };
+		3697D86521F080310066F0A1 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86421F080310066F0A1 /* FollowersViewModel.swift */; };
+		3697D86721F0846D0066F0A1 /* MeFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86621F0846D0066F0A1 /* MeFollowersViewController.swift */; };
+		3697D86921F0885A0066F0A1 /* MeFollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86821F0885A0066F0A1 /* MeFollowingViewController.swift */; };
+		3697D86B21F0888C0066F0A1 /* FollowingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86A21F0888C0066F0A1 /* FollowingViewModel.swift */; };
+		3697D86D21F0895D0066F0A1 /* FollowUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86C21F0895D0066F0A1 /* FollowUserViewModel.swift */; };
 		3697F32621E6E2FD00E2E7A5 /* IWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697F32521E6E2FD00E2E7A5 /* IWebViewController.swift */; };
 		36A0CC1421E47B3D00A63571 /* UIColor+UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1321E47B3D00A63571 /* UIColor+UIHelper.swift */; };
 		36A0CC1921E493B700A63571 /* HotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1821E493B700A63571 /* HotApi.swift */; };
@@ -105,6 +117,9 @@
 		36417FA521E5CED8007D2DB3 /* SelectedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedView.xib; sourceTree = "<group>"; };
 		36417FA921E5FF4F007D2DB3 /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		364BAA5D21EF33BA00E5C676 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
+		364BAA5F21F01A3000E5C676 /* MeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeApi.swift; sourceTree = "<group>"; };
+		364BAA6121F01B1B00E5C676 /* MeReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeReposViewController.swift; sourceTree = "<group>"; };
+		364BAA6321F01CB900E5C676 /* MeReposViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeReposViewModel.swift; sourceTree = "<group>"; };
 		3654BED721E2EDAA00694BAA /* UIImage+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Round.swift"; sourceTree = "<group>"; };
 		3655EB7D21E879AD0048DC99 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		3655EB7E21E879AD0048DC99 /* TrendingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCell.xib; sourceTree = "<group>"; };
@@ -131,6 +146,15 @@
 		368A5AFE21E44670002B5F48 /* NetworkLogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogPlugin.swift; sourceTree = "<group>"; };
 		368E4F6521E744E100EAA132 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		368E4F6721E7450D00EAA132 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		3697D85B21F073800066F0A1 /* FollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCell.swift; sourceTree = "<group>"; };
+		3697D85C21F073800066F0A1 /* FollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowCell.xib; sourceTree = "<group>"; };
+		3697D86021F079FD0066F0A1 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		3697D86221F07D210066F0A1 /* FollowUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUser.swift; sourceTree = "<group>"; };
+		3697D86421F080310066F0A1 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
+		3697D86621F0846D0066F0A1 /* MeFollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeFollowersViewController.swift; sourceTree = "<group>"; };
+		3697D86821F0885A0066F0A1 /* MeFollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeFollowingViewController.swift; sourceTree = "<group>"; };
+		3697D86A21F0888C0066F0A1 /* FollowingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewModel.swift; sourceTree = "<group>"; };
+		3697D86C21F0895D0066F0A1 /* FollowUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUserViewModel.swift; sourceTree = "<group>"; };
 		3697F32521E6E2FD00E2E7A5 /* IWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWebViewController.swift; sourceTree = "<group>"; };
 		3697F32721E6E79B00E2E7A5 /* iGithub-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGithub-Bridging-Header.h"; sourceTree = "<group>"; };
 		36A0CC1321E47B3D00A63571 /* UIColor+UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+UIHelper.swift"; sourceTree = "<group>"; };
@@ -262,6 +286,10 @@
 			isa = PBXGroup;
 			children = (
 				365DC7D121EF083A00213747 /* ProfileViewModel.swift */,
+				364BAA6321F01CB900E5C676 /* MeReposViewModel.swift */,
+				3697D86421F080310066F0A1 /* FollowersViewModel.swift */,
+				3697D86A21F0888C0066F0A1 /* FollowingViewModel.swift */,
+				3697D86C21F0895D0066F0A1 /* FollowUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				365DC7D421EF0B3900213747 /* ProfileItem.swift */,
+				3697D86221F07D210066F0A1 /* FollowUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,6 +376,14 @@
 			path = Plugins;
 			sourceTree = "<group>";
 		};
+		3697D85F21F079DD0066F0A1 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				3697D86021F079FD0066F0A1 /* UIImageView+Kingfisher.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
 		36A0CC1221E47B2200A63571 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +445,8 @@
 				365DC7CD21EF063000213747 /* ProfileCell.xib */,
 				365DC7D621EF2DE000213747 /* MeTableFooterView.swift */,
 				365DC7D821EF2DEE00213747 /* MeTableFooterView.xib */,
+				3697D85B21F073800066F0A1 /* FollowCell.swift */,
+				3697D85C21F073800066F0A1 /* FollowCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -553,6 +592,9 @@
 			children = (
 				36A3003821EC72C3008D291D /* MeViewController.swift */,
 				36A3003921EC72C3008D291D /* MeViewController.xib */,
+				364BAA6121F01B1B00E5C676 /* MeReposViewController.swift */,
+				3697D86621F0846D0066F0A1 /* MeFollowersViewController.swift */,
+				3697D86821F0885A0066F0A1 /* MeFollowingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -566,6 +608,7 @@
 				88C63BF521DF9EC00027FF47 /* ActivityApi.swift */,
 				36A0CC1821E493B700A63571 /* HotApi.swift */,
 				36A3002521E8E645008D291D /* AuthApi.swift */,
+				364BAA5F21F01A3000E5C676 /* MeApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -669,6 +712,7 @@
 		88C63BFB21DFAA240027FF47 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3697D85F21F079DD0066F0A1 /* UIImageView */,
 				368A5AFA21E367DB002B5F48 /* Date */,
 				368A5AF721E3677A002B5F48 /* String */,
 				3654BED621E2ED8C00694BAA /* UIImage */,
@@ -790,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36A3003B21EC72C3008D291D /* MeViewController.xib in Resources */,
+				3697D85E21F073800066F0A1 /* FollowCell.xib in Resources */,
 				36A3002C21EC2DC7008D291D /* LoginViewController.xib in Resources */,
 				36AE692821DDB23D00C9A656 /* LaunchScreen.storyboard in Resources */,
 				36AE692521DDB23D00C9A656 /* Assets.xcassets in Resources */,
@@ -938,17 +983,23 @@
 			files = (
 				88C63BFD21DFAA4E0027FF47 /* MoyaResponse+HandyJSON.swift in Sources */,
 				3684611221E0866200AFF626 /* UIView+Extension.swift in Sources */,
+				364BAA6421F01CB900E5C676 /* MeReposViewModel.swift in Sources */,
+				3697D86321F07D210066F0A1 /* FollowUser.swift in Sources */,
 				3684610321E0594900AFF626 /* ActivityListCell.swift in Sources */,
+				3697D86521F080310066F0A1 /* FollowersViewModel.swift in Sources */,
 				3684611421E0872800AFF626 /* ActivityCellViewModel.swift in Sources */,
 				8836180B21E4F2C500715D80 /* PopularViewModel.swift in Sources */,
+				3697D86721F0846D0066F0A1 /* MeFollowersViewController.swift in Sources */,
 				365DC7D721EF2DE000213747 /* MeTableFooterView.swift in Sources */,
 				3697F32621E6E2FD00E2E7A5 /* IWebViewController.swift in Sources */,
 				3655EB7F21E879AD0048DC99 /* TrendingCell.swift in Sources */,
+				3697D86121F079FD0066F0A1 /* UIImageView+Kingfisher.swift in Sources */,
 				368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */,
 				88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */,
 				36417FAA21E5FF4F007D2DB3 /* RepoViewController.swift in Sources */,
 				8836180921E4F2C500715D80 /* Repo.swift in Sources */,
 				3660B7FE21E7848800A83BF8 /* Constant.swift in Sources */,
+				3697D86B21F0888C0066F0A1 /* FollowingViewModel.swift in Sources */,
 				3684610921E0619900AFF626 /* UITableView+nib.swift in Sources */,
 				368460FB21DF401900AFF626 /* Network.swift in Sources */,
 				36A3002F21EC3652008D291D /* UserManager.swift in Sources */,
@@ -956,6 +1007,7 @@
 				8836180A21E4F2C500715D80 /* HotViewController.swift in Sources */,
 				3684610C21E081CA00AFF626 /* UIColor+Extension.swift in Sources */,
 				36C9806821E8C3BA0022F2F8 /* TrendingRepo.swift in Sources */,
+				3697D86D21F0895D0066F0A1 /* FollowUserViewModel.swift in Sources */,
 				36A3003321EC36A3008D291D /* User.swift in Sources */,
 				36A3003521EC3D2E008D291D /* AuthManager.swift in Sources */,
 				88C63BF421DF9E410027FF47 /* ActivityViewModel.swift in Sources */,
@@ -968,19 +1020,23 @@
 				36417FA421E5CEC3007D2DB3 /* SelectedView.swift in Sources */,
 				8836180821E4F2C500715D80 /* PopularCell.swift in Sources */,
 				36A3002621E8E645008D291D /* AuthApi.swift in Sources */,
+				364BAA6021F01A3000E5C676 /* MeApi.swift in Sources */,
 				36A3002B21EC2DC7008D291D /* LoginViewController.swift in Sources */,
 				36C9806A21E8C8830022F2F8 /* TrendingViewModel.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
 				365DC7D521EF0B3900213747 /* ProfileItem.swift in Sources */,
+				3697D85D21F073800066F0A1 /* FollowCell.swift in Sources */,
 				3637745C21EDD74C00B7590C /* NSObject+AOP.swift in Sources */,
 				36A3003A21EC72C3008D291D /* MeViewController.swift in Sources */,
 				36A0CC1921E493B700A63571 /* HotApi.swift in Sources */,
+				364BAA6221F01B1B00E5C676 /* MeReposViewController.swift in Sources */,
 				368A5AF921E36789002B5F48 /* String+Extension.swift in Sources */,
 				3676371B21EC916D000C7C3F /* MeTableHeaderView.swift in Sources */,
 				368460FF21DF407B00AFF626 /* GithubTarget.swift in Sources */,
 				3684610F21E0835900AFF626 /* Namespace.swift in Sources */,
 				365DC7D221EF083A00213747 /* ProfileViewModel.swift in Sources */,
 				3637745A21EDD55F00B7590C /* UINavigationController+AOP.swift in Sources */,
+				3697D86921F0885A0066F0A1 /* MeFollowingViewController.swift in Sources */,
 				3654BED821E2EDAA00694BAA /* UIImage+Round.swift in Sources */,
 				368E4F6821E7450D00EAA132 /* PopularViewController.swift in Sources */,
 				36AE695021DDB2B700C9A656 /* TabbarController.swift in Sources */,
