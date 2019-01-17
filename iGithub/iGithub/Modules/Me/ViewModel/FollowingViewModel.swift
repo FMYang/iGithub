@@ -10,7 +10,7 @@ import Foundation
 
 class FollowingViewModel {
     func fetchFollowers() -> Observable<[String]> {
-        return Network.request(MeApi.listFollowing(userName: "FMYang", page: 1))
+        return Network.request(MeApi.listFollowing(userName: UserManager.share.userName, page: 1))
             .asObservable()
             .mapArray(type: FollowUser.self)
             .flatMap { (list) -> Observable<[String]> in
