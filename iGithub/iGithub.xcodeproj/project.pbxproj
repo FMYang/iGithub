@@ -53,6 +53,10 @@
 		3697D86921F0885A0066F0A1 /* MeFollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86821F0885A0066F0A1 /* MeFollowingViewController.swift */; };
 		3697D86B21F0888C0066F0A1 /* FollowingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86A21F0888C0066F0A1 /* FollowingViewModel.swift */; };
 		3697D86D21F0895D0066F0A1 /* FollowUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86C21F0895D0066F0A1 /* FollowUserViewModel.swift */; };
+		3697D87021F16B3F0066F0A1 /* UIWindow+Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D86F21F16B3F0066F0A1 /* UIWindow+Memory.swift */; };
+		3697D87221F1709D0066F0A1 /* UIViewController+AOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D87121F1709D0066F0A1 /* UIViewController+AOP.swift */; };
+		3697D87421F175EB0066F0A1 /* AOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D87321F175EB0066F0A1 /* AOP.swift */; };
+		3697D87621F185D40066F0A1 /* UIView+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D87521F185D40066F0A1 /* UIView+HUD.swift */; };
 		3697F32621E6E2FD00E2E7A5 /* IWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697F32521E6E2FD00E2E7A5 /* IWebViewController.swift */; };
 		36A0CC1421E47B3D00A63571 /* UIColor+UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1321E47B3D00A63571 /* UIColor+UIHelper.swift */; };
 		36A0CC1921E493B700A63571 /* HotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0CC1821E493B700A63571 /* HotApi.swift */; };
@@ -155,6 +159,10 @@
 		3697D86821F0885A0066F0A1 /* MeFollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeFollowingViewController.swift; sourceTree = "<group>"; };
 		3697D86A21F0888C0066F0A1 /* FollowingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewModel.swift; sourceTree = "<group>"; };
 		3697D86C21F0895D0066F0A1 /* FollowUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUserViewModel.swift; sourceTree = "<group>"; };
+		3697D86F21F16B3F0066F0A1 /* UIWindow+Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Memory.swift"; sourceTree = "<group>"; };
+		3697D87121F1709D0066F0A1 /* UIViewController+AOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AOP.swift"; sourceTree = "<group>"; };
+		3697D87321F175EB0066F0A1 /* AOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOP.swift; sourceTree = "<group>"; };
+		3697D87521F185D40066F0A1 /* UIView+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HUD.swift"; sourceTree = "<group>"; };
 		3697F32521E6E2FD00E2E7A5 /* IWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWebViewController.swift; sourceTree = "<group>"; };
 		3697F32721E6E79B00E2E7A5 /* iGithub-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGithub-Bridging-Header.h"; sourceTree = "<group>"; };
 		36A0CC1321E47B3D00A63571 /* UIColor+UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+UIHelper.swift"; sourceTree = "<group>"; };
@@ -244,8 +252,10 @@
 		3637745821EDD55F00B7590C /* AOP */ = {
 			isa = PBXGroup;
 			children = (
+				3697D87321F175EB0066F0A1 /* AOP.swift */,
 				3637745B21EDD74C00B7590C /* NSObject+AOP.swift */,
 				3637745921EDD55F00B7590C /* UINavigationController+AOP.swift */,
+				3697D87121F1709D0066F0A1 /* UIViewController+AOP.swift */,
 			);
 			path = AOP;
 			sourceTree = "<group>";
@@ -348,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				3684611121E0866200AFF626 /* UIView+Extension.swift */,
+				3697D87521F185D40066F0A1 /* UIView+HUD.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -382,6 +393,14 @@
 				3697D86021F079FD0066F0A1 /* UIImageView+Kingfisher.swift */,
 			);
 			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		3697D86E21F16B090066F0A1 /* UIWindow */ = {
+			isa = PBXGroup;
+			children = (
+				3697D86F21F16B3F0066F0A1 /* UIWindow+Memory.swift */,
+			);
+			path = UIWindow;
 			sourceTree = "<group>";
 		};
 		36A0CC1221E47B2200A63571 /* Helper */ = {
@@ -712,6 +731,7 @@
 		88C63BFB21DFAA240027FF47 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3697D86E21F16B090066F0A1 /* UIWindow */,
 				3697D85F21F079DD0066F0A1 /* UIImageView */,
 				368A5AFA21E367DB002B5F48 /* Date */,
 				368A5AF721E3677A002B5F48 /* String */,
@@ -924,6 +944,7 @@
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
@@ -940,6 +961,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
@@ -997,6 +1019,7 @@
 				368A5AFC21E367FA002B5F48 /* Date+Extension.swift in Sources */,
 				88C63BF621DF9EC00027FF47 /* ActivityApi.swift in Sources */,
 				36417FAA21E5FF4F007D2DB3 /* RepoViewController.swift in Sources */,
+				3697D87421F175EB0066F0A1 /* AOP.swift in Sources */,
 				8836180921E4F2C500715D80 /* Repo.swift in Sources */,
 				3660B7FE21E7848800A83BF8 /* Constant.swift in Sources */,
 				3697D86B21F0888C0066F0A1 /* FollowingViewModel.swift in Sources */,
@@ -1023,11 +1046,13 @@
 				364BAA6021F01A3000E5C676 /* MeApi.swift in Sources */,
 				36A3002B21EC2DC7008D291D /* LoginViewController.swift in Sources */,
 				36C9806A21E8C8830022F2F8 /* TrendingViewModel.swift in Sources */,
+				3697D87021F16B3F0066F0A1 /* UIWindow+Memory.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,
 				365DC7D521EF0B3900213747 /* ProfileItem.swift in Sources */,
 				3697D85D21F073800066F0A1 /* FollowCell.swift in Sources */,
 				3637745C21EDD74C00B7590C /* NSObject+AOP.swift in Sources */,
 				36A3003A21EC72C3008D291D /* MeViewController.swift in Sources */,
+				3697D87221F1709D0066F0A1 /* UIViewController+AOP.swift in Sources */,
 				36A0CC1921E493B700A63571 /* HotApi.swift in Sources */,
 				364BAA6221F01B1B00E5C676 /* MeReposViewController.swift in Sources */,
 				368A5AF921E36789002B5F48 /* String+Extension.swift in Sources */,
@@ -1044,6 +1069,7 @@
 				368A5AFF21E44670002B5F48 /* NetworkLogPlugin.swift in Sources */,
 				36C9806C21E8C8BE0022F2F8 /* TrendingCellViewModel.swift in Sources */,
 				364BAA5E21EF33BA00E5C676 /* ProfileProtocol.swift in Sources */,
+				3697D87621F185D40066F0A1 /* UIView+HUD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

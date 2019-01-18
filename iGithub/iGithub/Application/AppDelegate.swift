@@ -10,6 +10,11 @@ import UIKit
 import Foundation
 import KafkaRefresh
 
+fileprivate enum RootType {
+    case login
+    case tabbar
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KafkaRefreshDefaults.standard()?.headDefaultStyle = .replicatorWoody
         KafkaRefreshDefaults.standard()?.themeColor = UIColor.sp.theme_red
-        UINavigationController.swizzing()
+        AOP.swizzling()
         self.starLogic()
         return true
     }
@@ -29,7 +34,7 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         if AuthManager.share.tokenValidated {
-            window?.rootViewController = TabbarController.share
+            window?.rootViewController = TabbarController()
         } else {
             let loginVC = LoginViewController()
             window?.rootViewController = loginVC
@@ -38,15 +43,21 @@ extension AppDelegate {
     }
 
     func loginSuccess() {
-        TabbarController.share.selectedIndex = 0
-        window?.rootViewController = TabbarController.share
-        window?.makeKeyAndVisible()
+        let tabbarController = TabbarController()
+        self.set(rootViewController: tabbarController, type: .tabbar)
     }
 
     func logout() {
         UserManager.share.remove()
         let loginVC = LoginViewController()
-        window?.rootViewController = loginVC
+        self.set(rootViewController: loginVC, type: .login)
+    }
+
+   fileprivate func set(rootViewController viewController: UIViewController, type: RootType) {
+        let transion = CATransition()
+        transion.type = .push
+        transion.subtype = (type == .login) ? .fromLeft : .fromRight
+        window?.safeSet(rootViewController: viewController, withTransition: transion)
     }
 }
 

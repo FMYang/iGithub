@@ -37,12 +37,3 @@ extension String {
                           locale: nil) != nil
     }
 }
-
-extension Date {
-    func toString(dateFormat: String) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "zh")
-        formatter.dateFormat = dateFormat
-        return formatter.string(from: self)
-    }
-}

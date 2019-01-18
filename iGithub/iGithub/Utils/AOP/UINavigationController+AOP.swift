@@ -9,7 +9,7 @@
 import Foundation
 
 extension UINavigationController {
-    static func swizzing() {
+    static func swizzling_pushViewController() {
         self.aop_ExchangeInstanceSelector(originalSelector: #selector(self.pushViewController(_:animated:)),
                                           swizzledSelector: #selector(self.aop_pushViewController(_:animated:)),
                                           cls: UINavigationController.self)

@@ -9,7 +9,6 @@
 import Foundation
 
 extension Date {
-
     public func timeFromNow() -> String {
         var timeFromNowInWords : String = ""
 
@@ -43,5 +42,13 @@ extension Date {
 
         return timeFromNowInWords
     }
+}
 
+extension Date {
+    func toString(dateFormat: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "zh")
+        formatter.dateFormat = dateFormat
+        return formatter.string(from: self)
+    }
 }

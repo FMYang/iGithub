@@ -28,11 +28,14 @@ class LoginViewController: UIViewController {
     }
 
     func fetchData() {
+        self.view.showLoading("Login...")
         loginVM.fetchUser()
-            .subscribe(onNext: { (user) in
+            .subscribe(onNext: { [weak self] (user) in
+                self?.view.hideLoading()
                 UserManager.share.user = user
                 (UIApplication.shared.delegate as? AppDelegate)?.loginSuccess()
-            }, onError: { (error) in
+            }, onError: { [weak self] (error) in
+                self?.view.hideLoading()
                 UserManager.share.remove()
             })
             .disposed(by: bag)

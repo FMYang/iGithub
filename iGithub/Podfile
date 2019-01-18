@@ -29,7 +29,10 @@ target 'iGithub' do
 
   # refresh
   pod 'KafkaRefresh'
-  
+
+  # hud
+  pod 'MBProgressHUD'
+
   target 'iGithubTests' do
     inherit! :search_paths
     # Pods for testing

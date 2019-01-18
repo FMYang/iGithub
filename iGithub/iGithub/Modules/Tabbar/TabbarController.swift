@@ -66,15 +66,13 @@ enum ItemType {
 
 class TabbarController: UITabBarController {
 
-    static let share = TabbarController()
-
     private let items: [ItemType] = [.activity,
                                    .hot,
                                    .me]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // fix: iOS12 TabbarItem jump then back
+        // fix: iOS12 TabbarItem jump then back bug
         self.tabBar.isTranslucent = false
         self.viewControllers = items.map { $0.getController() }
         appearance()

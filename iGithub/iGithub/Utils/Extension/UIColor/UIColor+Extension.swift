@@ -41,10 +41,10 @@ extension UIColor {
         )
     }
 
-    /// 根据一个颜色创建一个UIImage
+    /// create image by color
     ///
-    /// - Parameter color: 颜色
-    /// - Returns: UIImaged?
+    /// - Parameter color: color
+    /// - Returns: image
     static func createImage(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
