@@ -28,10 +28,10 @@ class ActivityViewModel {
             .flatMap { (urls) -> Observable<String?> in
                 return Observable.from(urls)
             }
-            .flatMap { (url) -> Observable<ActivityListRepoDetail?> in
+            .flatMap { (url) -> Observable<RepoItem?> in
                 return Network.request(ActivityApi.activityRepo(repoName:url!))
                     .asObservable()
-                    .mapObject(type: ActivityListRepoDetail.self)
+                    .mapObject(type: RepoItem.self)
                     .catchErrorJustReturn(nil)
             }
             .toArray()
@@ -44,7 +44,7 @@ class ActivityViewModel {
                 
                 // match activity and repo，make sure data correct, because async request is unordered
                 activity.forEach {
-                    var matchRepo: ActivityListRepoDetail?
+                    var matchRepo: RepoItem?
                     let id = $0?.repo?.id
                     repo.forEach {
                         if $0?.id == id {

@@ -12,9 +12,9 @@ import SnapKit
 import FDFullscreenPopGesture
 
 class ActivityViewController: UIViewController {
-    
-    let activityVM = ActivityViewModel()
+
     let bag = DisposeBag()
+    let activityVM = ActivityViewModel()
     var listModel = [ActivityCellViewModel?]()
 
     lazy var tableView: UITableView = {
@@ -29,12 +29,10 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fd_prefersNavigationBarHidden = true
+
         layoutUI()
 
-        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
-            self?.fetchData()
-        })
-        self.tableView.headRefreshControl.beginRefreshing()
+        addRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +45,13 @@ class ActivityViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+    }
+
+    func addRefresh() {
+        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
+            self?.fetchData()
+        })
+        self.tableView.headRefreshControl.beginRefreshing()
     }
 
     // MARK: - network
@@ -72,5 +77,11 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.sp.dequeueReuseCell(ActivityListCell.self, indexPath: indexPath)
         cell.bindData(vm: self.listModel[indexPath.row])
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.listModel[indexPath.row]
+        let vc = IWebViewController(urlPath: item?.url)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -73,9 +73,6 @@ extension MeFollowersViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = self.items[indexPath.row]
-//        let vc = IWebViewController(urlPath: item?.url)
-//        vc.webTitle = item?.repoName
-//        self.navigationController?.pushViewController(vc, animated: true)
+
     }
 }

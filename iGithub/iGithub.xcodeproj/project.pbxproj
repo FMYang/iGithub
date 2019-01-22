@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		047325D9DF886877A66F12DD /* Pods_iGithubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FFDBA5C929C63CD2A12DB7 /* Pods_iGithubUITests.framework */; };
 		36242BDC21E4B10200CBAE0A /* TDWDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */; };
+		3626874D21F1BD4700B1EA5D /* UIView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3626874C21F1BD4700B1EA5D /* UIView+Refresh.swift */; };
 		3637745A21EDD55F00B7590C /* UINavigationController+AOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637745921EDD55F00B7590C /* UINavigationController+AOP.swift */; };
 		3637745C21EDD74C00B7590C /* NSObject+AOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637745B21EDD74C00B7590C /* NSObject+AOP.swift */; };
 		36417FA421E5CEC3007D2DB3 /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36417FA321E5CEC3007D2DB3 /* SelectedView.swift */; };
@@ -115,6 +116,7 @@
 		0DD8075AA15875B820E6AD22 /* Pods-iGithubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E7C1E35B594284B1FDEFC16 /* Pods-iGithubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iGithubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iGithubUITests/Pods-iGithubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		36242BDB21E4B10200CBAE0A /* TDWDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWDropDownMenu.swift; sourceTree = "<group>"; };
+		3626874C21F1BD4700B1EA5D /* UIView+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Refresh.swift"; sourceTree = "<group>"; };
 		3637745921EDD55F00B7590C /* UINavigationController+AOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AOP.swift"; sourceTree = "<group>"; };
 		3637745B21EDD74C00B7590C /* NSObject+AOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+AOP.swift"; sourceTree = "<group>"; };
 		36417FA321E5CEC3007D2DB3 /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			children = (
 				3684611121E0866200AFF626 /* UIView+Extension.swift */,
 				3697D87521F185D40066F0A1 /* UIView+HUD.swift */,
+				3626874C21F1BD4700B1EA5D /* UIView+Refresh.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1045,6 +1048,7 @@
 				36A3002621E8E645008D291D /* AuthApi.swift in Sources */,
 				364BAA6021F01A3000E5C676 /* MeApi.swift in Sources */,
 				36A3002B21EC2DC7008D291D /* LoginViewController.swift in Sources */,
+				3626874D21F1BD4700B1EA5D /* UIView+Refresh.swift in Sources */,
 				36C9806A21E8C8830022F2F8 /* TrendingViewModel.swift in Sources */,
 				3697D87021F16B3F0066F0A1 /* UIWindow+Memory.swift in Sources */,
 				36AE695521DDBEAA00C9A656 /* ActivityViewController.swift in Sources */,

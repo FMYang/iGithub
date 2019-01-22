@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import KafkaRefresh
 
 fileprivate enum RootType {
     case login
@@ -21,9 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        KafkaRefreshDefaults.standard()?.headDefaultStyle = .replicatorWoody
-        KafkaRefreshDefaults.standard()?.themeColor = UIColor.sp.theme_red
         AOP.swizzling()
+        UIView.configRefreshStyle()
         self.starLogic()
         return true
     }
@@ -53,7 +51,7 @@ extension AppDelegate {
         self.set(rootViewController: loginVC, type: .login)
     }
 
-   fileprivate func set(rootViewController viewController: UIViewController, type: RootType) {
+    fileprivate func set(rootViewController viewController: UIViewController, type: RootType) {
         let transion = CATransition()
         transion.type = .push
         transion.subtype = (type == .login) ? .fromLeft : .fromRight

@@ -62,23 +62,23 @@ struct PayLoad: HandyJSON {
 }
 
 /// repo detail
-struct ActivityListRepoDetail: HandyJSON {
-    var id: Int?
-    var description: String?
-    var stargazers_count: Int = 0
-    var language: String?
-    var updated_at: String?
-    
-    mutating func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            self.updated_at <-- TransformOf(fromJSON: { (rawString) -> String? in
-                let timeNow = rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.timeFromNow()
-                return timeNow
-            }, toJSON: { (str) -> String? in
-                return str
-            })
-    }
-}
+//struct ActivityListRepoDetail: HandyJSON {
+//    var id: Int?
+//    var description: String?
+//    var stargazers_count: Int = 0
+//    var language: String?
+//    var updated_at: String?
+//
+//    mutating func mapping(mapper: HelpingMapper) {
+//        mapper <<<
+//            self.updated_at <-- TransformOf(fromJSON: { (rawString) -> String? in
+//                let timeNow = rawString?.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'")?.timeFromNow()
+//                return timeNow
+//            }, toJSON: { (str) -> String? in
+//                return str
+//            })
+//    }
+//}
 
 /// event type enum
 enum EventType: String, HandyJSONEnum {

@@ -71,30 +71,30 @@ class Network {
                         observer.onCompleted()
                     } catch {
                         // http request fails
-                        #if DEBUG
-                        let responseData = try? JSONSerialization.jsonObject(with: response.data)
-                        var message = ""
-                        if let responseData = responseData as? [String : Any] {
-                            message = responseData["message"] as? String ?? ""
-                        }
-                        if !isAlertShow {
-                            isAlertShow = !isAlertShow
-                            self.showAlert(String(describing: response.statusCode), message: message, action: {
-                                isAlertShow = false
-                            })
-                        }
-                        #endif
+//                        #if DEBUG
+//                        let responseData = try? JSONSerialization.jsonObject(with: response.data)
+//                        var message = ""
+//                        if let responseData = responseData as? [String : Any] {
+//                            message = responseData["message"] as? String ?? ""
+//                        }
+//                        if !isAlertShow {
+//                            isAlertShow = !isAlertShow
+//                            self.showAlert(String(describing: response.statusCode), message: message, action: {
+//                                isAlertShow = false
+//                            })
+//                        }
+//                        #endif
                         observer.onError(error)
                     }
                 case .failure(let error):
-                    #if DEBUG
-                    if !isAlertShow {
-                        isAlertShow = !isAlertShow
-                        self.showAlert(String(describing: error.response?.statusCode ?? -1), message: error.localizedDescription, action: {
-                            isAlertShow = false
-                        })
-                    }
-                    #endif
+//                    #if DEBUG
+//                    if !isAlertShow {
+//                        isAlertShow = !isAlertShow
+//                        self.showAlert(String(describing: error.response?.statusCode ?? -1), message: error.localizedDescription, action: {
+//                            isAlertShow = false
+//                        })
+//                    }
+//                    #endif
                     observer.onError(error)
                 }
             })

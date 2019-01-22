@@ -22,20 +22,23 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonClick(_ sender: Any) {
+
+        self.view.endEditing(true)
+
         AuthManager.share.createToken(userName: userNameTextField.text!,
                                       password: passwordTextField.text!)
         self.fetchData()
     }
 
     func fetchData() {
-        self.view.showLoading("Login...")
+        self.view.sp.showLoading("Login...")
         loginVM.fetchUser()
             .subscribe(onNext: { [weak self] (user) in
-                self?.view.hideLoading()
+                self?.view.sp.hideLoading()
                 UserManager.share.user = user
                 (UIApplication.shared.delegate as? AppDelegate)?.loginSuccess()
             }, onError: { [weak self] (error) in
-                self?.view.hideLoading()
+                self?.view.sp.hideWithMessage(title: "UserName or password error!")
                 UserManager.share.remove()
             })
             .disposed(by: bag)

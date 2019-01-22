@@ -9,7 +9,6 @@
 import Foundation
 
 extension UIWindow {
-
     func set(rootViewController viewController: UIViewController) {
         let transion = CATransition()
         transion.type = .push
