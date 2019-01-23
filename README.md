@@ -8,5 +8,3 @@ A simple github client, wirte by Swift
 
 test roll back1
 
-test roll back2
-
