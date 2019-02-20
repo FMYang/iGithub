@@ -13,6 +13,7 @@ class MeFollowersViewController: UIViewController {
     let bag = DisposeBag()
     let viewModel = FollowersViewModel()
     var items = [FollowUserViewModel?]()
+    var page = 1
 
     lazy var tableView: UITableView = {
         let view = UITableView()
@@ -30,11 +31,7 @@ class MeFollowersViewController: UIViewController {
 
         layoutUI()
 
-        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
-            self?.fetchData()
-        })
-
-        self.tableView.headRefreshControl.beginRefreshing()
+        addRefresh()
     }
     
     // MARK: - function
@@ -45,17 +42,47 @@ class MeFollowersViewController: UIViewController {
         }
     }
 
+    func addRefresh() {
+        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
+            self?.page = 1
+            self?.fetchData()
+        })
+
+        self.tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
+            self?.fetchData()
+        })
+
+        self.tableView.headRefreshControl.beginRefreshing()
+
+        self.tableView.footRefreshControl.isHidden = true
+    }
+    
+
     // MARK: - network
     func fetchData() {
-        viewModel.fetchFollowerUsers()
-            .subscribe(onNext: { [weak self] (vms) in
-                print(vms)
-                self?.items = vms
+        viewModel.fetchFollowerUsers(page: page)
+            .subscribe(onNext: { [weak self] (viewModels) in
+                if self?.page == 1 {
+                    self?.items.removeAll()
+                    self?.tableView.headRefreshControl.endRefreshing()
+                    if viewModels.count == ig_pageSize {
+                        self?.tableView.footRefreshControl.isHidden = false
+                    }
+                } else {
+                    if viewModels.count < ig_pageSize {
+                        self?.tableView.footRefreshControl.endRefreshingAndNoLongerRefreshing(withAlertText: "no more")
+                    } else {
+                        self?.tableView.footRefreshControl.endRefreshing()
+                    }
+                }
+                self?.items += viewModels
                 self?.tableView.reloadData()
-                self?.tableView.headRefreshControl.endRefreshing()
+
+                self?.page += 1
             }, onError: { [weak self] (error) in
                 print(error)
                 self?.tableView.headRefreshControl.endRefreshing()
+                self?.tableView.footRefreshControl.endRefreshing()
             })
             .disposed(by: bag)
     }

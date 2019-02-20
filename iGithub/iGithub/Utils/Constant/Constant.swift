@@ -27,3 +27,5 @@ let isIphoneXOrLater = (isIphoneX || isIphoneXS || isIphoneXSOrXR)
 
 let IG_NaviHeight: CGFloat = isIphoneXOrLater ? 88 : 64
 let IG_TabbarHeight: CGFloat = isIphoneXOrLater ? 83 : 49
+
+let ig_pageSize = 30

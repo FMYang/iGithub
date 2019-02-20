@@ -46,6 +46,7 @@ class PopularViewController: UIViewController {
                 var frame = self.languageSelectedView.conditionView.frame
                 frame.origin.y += IG_NaviHeight+9
                 TDWDropDownMenu.show(frame: frame, data: self.languauges, callBack: { [weak self] (str) in
+                    self?.page = 1
                     self?.languageSelectedView.conditionLabel.text = str
                     self?.currentLanguage = str
                     self?.tableView.setContentOffset(.zero, animated: false)
@@ -54,11 +55,7 @@ class PopularViewController: UIViewController {
             })
             .disposed(by: bag)
 
-        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
-            self?.fetchData()
-        })
-
-        self.tableView.headRefreshControl.beginRefreshing()
+        addRefresh()
     }
 
     // MARK: - fuction
@@ -76,13 +73,33 @@ class PopularViewController: UIViewController {
         }
     }
 
+    func addRefresh() {
+        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
+            self?.page = 1
+            self?.fetchData()
+        })
+
+        self.tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
+            self?.fetchData()
+        })
+
+        self.tableView.headRefreshControl.beginRefreshing()
+    }
+
     // MARK: - network
     func fetchData() {
         hotVM.fetchPopularRepo(q: currentLanguage, sort: "stars", page: page)
             .subscribe(onNext: { [weak self] (result) in
-                self?.items = result
+                if self?.page == 1 {
+                    self?.items.removeAll()
+                    self?.tableView.headRefreshControl.endRefreshing()
+                } else {
+                    self?.tableView.footRefreshControl.endRefreshing()
+                }
+                self?.items += result
                 self?.tableView.reloadData()
-                self?.tableView.headRefreshControl.endRefreshing()
+
+                self?.page += 1
             }, onError: { [weak self] (error) in
                 print(error)
                 self?.tableView.headRefreshControl.endRefreshing()

@@ -12,6 +12,7 @@ import KafkaRefresh
 extension UIView {
     static func configRefreshStyle() {
         KafkaRefreshDefaults.standard()?.headDefaultStyle = .replicatorWoody
+        KafkaRefreshDefaults.standard()?.footDefaultStyle = .replicatorWoody
         KafkaRefreshDefaults.standard()?.themeColor = UIColor.sp.theme_red
     }
 }

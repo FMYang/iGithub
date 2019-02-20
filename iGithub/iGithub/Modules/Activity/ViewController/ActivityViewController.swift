@@ -16,6 +16,7 @@ class ActivityViewController: UIViewController {
     let bag = DisposeBag()
     let activityVM = ActivityViewModel()
     var listModel = [ActivityCellViewModel?]()
+    var page = 1
 
     lazy var tableView: UITableView = {
         let view = UITableView()
@@ -49,20 +50,34 @@ class ActivityViewController: UIViewController {
 
     func addRefresh() {
         self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
+            self?.page = 1
             self?.fetchData()
         })
+
+        self.tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
+            self?.fetchData()
+        })
+
         self.tableView.headRefreshControl.beginRefreshing()
     }
 
     // MARK: - network
     func fetchData() {
-        activityVM.fetchActivityAndRepo().subscribe(onNext: { [weak self] (cellModels) in
-            self?.listModel = cellModels
+        activityVM.fetchActivityAndRepo(page: page).subscribe(onNext: { [weak self] (cellModels) in
+            if self?.page == 1 {
+                self?.listModel.removeAll()
+                self?.tableView.headRefreshControl.endRefreshing()
+            } else {
+                self?.tableView.footRefreshControl.endRefreshing()
+            }
+            self?.listModel += cellModels
             self?.tableView.reloadData()
             self?.tableView.headRefreshControl.endRefreshing()
+            self?.page += 1
         }, onError: { [weak self] (error) in
             print(error.localizedDescription)
             self?.tableView.headRefreshControl.endRefreshing()
+            self?.tableView.footRefreshControl.endRefreshing()
         })
         .disposed(by: bag)
     }

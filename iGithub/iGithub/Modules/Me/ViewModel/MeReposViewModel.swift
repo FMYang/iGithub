@@ -10,8 +10,8 @@ import Foundation
 
 class MeReposViewModel {
     
-    func fetchUserRepos() -> Observable<[PopularItemViewModel?]> {
-        return Network.request(MeApi.listRepos(userName: "FMYang", page: 1))
+    func fetchUserRepos(page: Int) -> Observable<[PopularItemViewModel?]> {
+        return Network.request(MeApi.listRepos(userName: UserManager.share.userName, page: page))
             .asObservable()
             .mapArray(type: RepoItem.self)
             .flatMap { (items) -> Observable<[PopularItemViewModel?]> in

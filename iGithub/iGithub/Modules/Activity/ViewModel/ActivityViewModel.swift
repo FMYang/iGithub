@@ -11,17 +11,17 @@ import RxSwift
 
 class ActivityViewModel {
 
-    func fetchPublicEvents() -> Observable<[Activity?]> {
+    func fetchPublicEvents(page: Int) -> Observable<[Activity?]> {
         return
             Network.request(ActivityApi.publicEvent(userName: UserManager.share.userName,
-                                                    page: 1))
+                                                    page: page))
                 .asObservable()
                 .mapArray(type: Activity.self)
                 .catchErrorJustReturn([])
     }
 
-    func fetchActivityAndRepo() -> Observable<[ActivityCellViewModel?]> {
-        let activitys = fetchPublicEvents()
+    func fetchActivityAndRepo(page: Int) -> Observable<[ActivityCellViewModel?]> {
+        let activitys = fetchPublicEvents(page: page)
         
         // [event] -> [repo.name] -> [RepoDetail]
         let repos = activitys.map { return $0.map { return $0?.repo?.name } }

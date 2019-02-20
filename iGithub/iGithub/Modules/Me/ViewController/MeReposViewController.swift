@@ -13,6 +13,7 @@ class MeReposViewController: UIViewController {
     let bag = DisposeBag()
     var items = [PopularItemViewModel?]()
     let meRepoVM = MeReposViewModel()
+    var page = 1
 
     lazy var tableView: UITableView = {
         let view = UITableView()
@@ -29,11 +30,7 @@ class MeReposViewController: UIViewController {
 
         self.navigationItem.title = "Repos"
 
-        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
-            self?.fetchData()
-        })
-
-        self.tableView.headRefreshControl.beginRefreshing()
+        addRefresh()
     }
 
     // MARK: - function
@@ -44,15 +41,45 @@ class MeReposViewController: UIViewController {
         }
     }
 
+    func addRefresh() {
+        self.tableView.bindGlobalStyle(forHeadRefreshHandler: { [weak self] in
+            self?.page = 1
+            self?.fetchData()
+        })
+
+        self.tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
+            self?.fetchData()
+        })
+
+        self.tableView.headRefreshControl.beginRefreshing()
+
+        self.tableView.footRefreshControl.isHidden = true
+    }
+
     func fetchData() {
-        meRepoVM.fetchUserRepos()
+        meRepoVM.fetchUserRepos(page: page)
             .subscribe(onNext: { [weak self] (result) in
-                self?.items = result
+                if self?.page == 1 {
+                    self?.items.removeAll()
+                    self?.tableView.headRefreshControl.endRefreshing()
+                    if result.count == ig_pageSize {
+                        self?.tableView.footRefreshControl.isHidden = false
+                    }
+                } else {
+                    if result.count < ig_pageSize {
+                        self?.tableView.footRefreshControl.endRefreshingAndNoLongerRefreshing(withAlertText: "no more")
+                    } else {
+                        self?.tableView.footRefreshControl.endRefreshing()
+                    }
+                }
+                self?.items += result
                 self?.tableView.reloadData()
-                self?.tableView.headRefreshControl.endRefreshing()
+
+                self?.page += 1
             }, onError: { [weak self] (error) in
                 print(error)
                 self?.tableView.headRefreshControl.endRefreshing()
+                self?.tableView.footRefreshControl.endRefreshing()
             })
             .disposed(by: bag)
     }
