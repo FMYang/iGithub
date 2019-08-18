@@ -941,7 +941,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-iGithub/Pods-iGithub-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-iGithub/Pods-iGithub-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -974,7 +974,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iGithub/Pods-iGithub-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iGithub/Pods-iGithub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D99F0C69F4CA0D45958E9226 /* [CP] Check Pods Manifest.lock */ = {

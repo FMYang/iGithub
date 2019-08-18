@@ -92,17 +92,16 @@ class PopularViewController: UIViewController {
             .subscribe(onNext: { [weak self] (result) in
                 if self?.page == 1 {
                     self?.items.removeAll()
-                    self?.tableView.headRefreshControl.endRefreshing()
-                } else {
-                    self?.tableView.footRefreshControl.endRefreshing()
                 }
                 self?.items += result
                 self?.tableView.reloadData()
-
                 self?.page += 1
+                self?.tableView.headRefreshControl.endRefreshing()
+                self?.tableView.footRefreshControl.endRefreshing()
             }, onError: { [weak self] (error) in
                 print(error)
                 self?.tableView.headRefreshControl.endRefreshing()
+                self?.tableView.footRefreshControl.endRefreshing()
             })
             .disposed(by: bag)
     }

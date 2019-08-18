@@ -32,8 +32,7 @@ extension HotApi: GithubTarget {
                     "sort": sort,
                     "page": page]
         case .trending(let since):
-            return ["language": "All languages",
-                    "since": since]
+            return ["since": since]
         }
     }
 

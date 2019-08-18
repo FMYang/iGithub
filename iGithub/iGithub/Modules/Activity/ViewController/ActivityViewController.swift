@@ -66,13 +66,11 @@ class ActivityViewController: UIViewController {
         activityVM.fetchActivityAndRepo(page: page).subscribe(onNext: { [weak self] (cellModels) in
             if self?.page == 1 {
                 self?.listModel.removeAll()
-                self?.tableView.headRefreshControl.endRefreshing()
-            } else {
-                self?.tableView.footRefreshControl.endRefreshing()
             }
             self?.listModel += cellModels
             self?.tableView.reloadData()
             self?.tableView.headRefreshControl.endRefreshing()
+            self?.tableView.footRefreshControl.endRefreshing()
             self?.page += 1
         }, onError: { [weak self] (error) in
             print(error.localizedDescription)
