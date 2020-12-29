@@ -37,7 +37,7 @@ class AuthManager {
 
     func createToken(userName: String, password: String) {
         let hash = "\(userName):\(password)".toBase64()
-        let authHash = "Basic \(hash)"
+        let authHash = "token \(hash)"
         token = authHash
     }
 

@@ -12,7 +12,8 @@ import Foundation
 // https://github.com/settings/applications/965464
 
 let client_id = "5d9a014c274cbae38154"
-let client_secret = "10ae9d865d9007d30e6376a79c0b21821f75702f"
+let client_secret = "6045f32e0a62e839dbbbfc3d417008d4beeb8e50"
+let redirectUri = "https://github.com/FMYang/iGithub"
 
 let screen_width = UIScreen.main.bounds.width
 let screen_height = UIScreen.main.bounds.height

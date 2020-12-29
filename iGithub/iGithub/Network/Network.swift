@@ -30,7 +30,7 @@ let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider<MultiTa
 
 let endpointClosure = { (target: MultiTarget) -> Endpoint in
     var defaultEndpoint = MoyaProvider<MultiTarget>.defaultEndpointMapping(for: target)
-    return defaultEndpoint.adding(newHTTPHeaderFields: ["Authorization": AuthManager.share.token ?? ""])
+    return defaultEndpoint.adding(newHTTPHeaderFields: ["Authorization": "token \(AuthManager.share.token ?? "")"])
 }
 
 let activityPlugin = NetworkActivityPlugin { (type, target) in

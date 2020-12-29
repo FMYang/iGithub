@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import WebKit
 
 fileprivate enum RootType {
     case login
@@ -42,13 +43,16 @@ extension AppDelegate {
 
     func loginSuccess() {
         let tabbarController = TabbarController()
-        self.set(rootViewController: tabbarController, type: .tabbar)
+        window?.rootViewController = tabbarController
+//        self.set(rootViewController: tabbarController, type: .tabbar)
     }
 
     func logout() {
         UserManager.share.remove()
+        cleanWebCookie()
         let loginVC = LoginViewController()
-        self.set(rootViewController: loginVC, type: .login)
+        window?.rootViewController = loginVC
+//        self.set(rootViewController: loginVC, type: .login)
     }
 
     fileprivate func set(rootViewController viewController: UIViewController, type: RootType) {
@@ -56,6 +60,19 @@ extension AppDelegate {
         transion.type = .push
         transion.subtype = (type == .login) ? .fromLeft : .fromRight
         window?.safeSet(rootViewController: viewController, withTransition: transion)
+    }
+}
+
+extension AppDelegate {
+    func cleanWebCookie() {
+        let store = WKWebsiteDataStore.default()
+        store.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+            records.forEach { (record) in
+                store.removeData(ofTypes: record.dataTypes, for: [record]) {
+                    print("delete cookie success!")
+                }
+            }
+        }
     }
 }
 

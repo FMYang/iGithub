@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,32 +23,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-login-header" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-rH-sEt">
-                    <rect key="frame" x="162.5" y="120" width="50" height="50"/>
+                    <rect key="frame" x="162.5" y="100" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="WqP-Ub-UVm"/>
                         <constraint firstAttribute="width" constant="50" id="bCx-3D-rU2"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please input userName" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-qS-ymw">
-                    <rect key="frame" x="30" y="210" width="315" height="40"/>
+                    <rect key="frame" x="30" y="190" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="KqZ-W3-d0g"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please input password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xzx-Pq-jbC">
-                    <rect key="frame" x="30" y="280" width="315" height="40"/>
+                    <rect key="frame" x="30" y="260" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="FZM-EW-Y8H"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1s-WD-l12">
-                    <rect key="frame" x="37.5" y="380" width="300" height="40"/>
+                    <rect key="frame" x="37.5" y="360" width="300" height="40"/>
                     <color key="backgroundColor" red="0.85882352941176465" green="0.25490196078431371" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="B8H-gH-qpB"/>
@@ -64,7 +60,7 @@
                     </connections>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName or password error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsX-Aw-EWF">
-                    <rect key="frame" x="30" y="340" width="315" height="20"/>
+                    <rect key="frame" x="30" y="320" width="315" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="LRK-yV-2Yn"/>
                     </constraints>
@@ -73,6 +69,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="2jV-qS-ymw" firstAttribute="top" secondItem="SIz-rH-sEt" secondAttribute="bottom" constant="40" id="0Qg-fA-FrG"/>
@@ -89,7 +86,6 @@
                 <constraint firstItem="rsX-Aw-EWF" firstAttribute="leading" secondItem="xzx-Pq-jbC" secondAttribute="leading" id="rse-Pk-8fb"/>
                 <constraint firstItem="S1s-WD-l12" firstAttribute="top" secondItem="xzx-Pq-jbC" secondAttribute="bottom" constant="60" id="vop-Uo-xfW"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
     </objects>
