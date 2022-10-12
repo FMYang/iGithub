@@ -33,7 +33,8 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         if AuthManager.share.tokenValidated {
-            window?.rootViewController = TabbarController()
+            let tabbarController = TabbarController()
+            window?.rootViewController = tabbarController
         } else {
             let loginVC = LoginViewController()
             window?.rootViewController = loginVC

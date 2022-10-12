@@ -50,6 +50,15 @@ enum ItemType {
         let item = UITabBarItem(title: self.itemTitle,
                                 image: self.itemNormalIcon,
                                 selectedImage: self.itemSelectedIcon)
+        item.setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
+        item.setTitleTextAttributes([.foregroundColor : UIColor.sp.theme_red], for: .selected)
+        if #available(iOS 13.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.black]
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor : UIColor.sp.theme_red]
+            item.standardAppearance = appearance
+        }
+
         let vc: UIViewController
         switch self {
         case .activity:
@@ -72,14 +81,20 @@ class TabbarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.clipsToBounds = true
         // fix: iOS12 TabbarItem jump then back bug
-        self.tabBar.isTranslucent = false
-        self.viewControllers = items.map { $0.getController() }
-        appearance()
+        tabBar.isTranslucent = false
+        viewControllers = items.map { $0.getController() }
+//        appearance()
     }
-
+    
     func appearance() {
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.sp.theme_red], for: .selected)
+        
+        if #available(iOS 13.0, *) {
+            tabBar.standardAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.black]
+            tabBar.standardAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor : UIColor.sp.theme_red]
+        }
     }
 }
