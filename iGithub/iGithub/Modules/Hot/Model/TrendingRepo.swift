@@ -9,20 +9,20 @@
 import Foundation
 
 struct TrendingRepo: HandyJSON {
-    var author: String?
-    var name: String?
+    var username: String?
+    var repositoryName: String?
     var url: String?
     var description: String?
     var language: String?
     var languageColor: String?
-    var stars: Int?
+    var totalStars: Int?
     var forks: Int?
-    var currentPeriodStars: Int?
+    var starsSince: Int?
     var builtBy: [RepoUser]?
 }
 
 struct RepoUser: HandyJSON {
     var username: String?
-    var href: String?
+    var url: String?
     var avatar: String?
 }

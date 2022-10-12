@@ -21,16 +21,16 @@ class TrendingCellViewModel {
     var builtBy: [RepoUser]?
     
     init(model: TrendingRepo?) {
-        self.author = model?.author
-        self.name = model?.name
+        self.author = model?.username
+        self.name = model?.repositoryName
         self.url = model?.url
         self.description = model?.description
         self.language = model?.language
         self.languageColor = model?.languageColor
-        self.currentPeriodStars = model?.currentPeriodStars
+        self.currentPeriodStars = model?.starsSince
         self.builtBy = model?.builtBy
 
-        if let starCount = model?.stars {
+        if let starCount = model?.totalStars {
             if starCount > 1000 {
                 self.stars = String(format: "%.1f", Double(starCount)/1000.0)+"k"
             } else {

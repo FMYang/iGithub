@@ -19,7 +19,7 @@ extension HotApi: GithubTarget {
     var baseURL: URL {
         switch self {
         case .trending:
-            return URL(string: "https://github-trending-api.now.sh/")!
+            return URL(string: "https://gh-trending-api.herokuapp.com/")!
         default:
             return URL(string: "https://api.github.com/")!
         }
