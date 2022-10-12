@@ -22,6 +22,7 @@ class ActivityViewController: UIViewController {
         let view = UITableView()
         view.dataSource = self
         view.delegate = self
+        view.separatorStyle = .none
         view.sp.registerCellFromNib(cls: ActivityListCell.self)
         view.estimatedRowHeight = 150
         return view
@@ -89,6 +90,11 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.sp.dequeueReuseCell(ActivityListCell.self, indexPath: indexPath)
         cell.bindData(vm: self.listModel[indexPath.row])
+        if(indexPath.row == self.listModel.count - 1) {
+            cell.lineView.isHidden = true
+        } else {
+            cell.lineView.isHidden = false
+        }
         return cell
     }
 

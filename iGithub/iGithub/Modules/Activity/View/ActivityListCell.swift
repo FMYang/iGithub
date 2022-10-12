@@ -23,12 +23,14 @@ class ActivityListCell: UITableViewCell {
     @IBOutlet weak var repoStarImage: UIImageView!
     @IBOutlet weak var repoStarLabel: UILabel!
     @IBOutlet weak var repoUpdateTimeLabel: UILabel!
-
+    @IBOutlet weak var lineView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         repoView.layer.borderColor = UIColor(valueRGB: 0xbbbbbb).cgColor
         repoView.layer.borderWidth = 0.5
+        lineView.backgroundColor = UIColor(valueRGB: 0xbbbbbb)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
