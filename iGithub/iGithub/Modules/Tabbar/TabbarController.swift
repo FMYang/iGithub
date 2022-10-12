@@ -85,16 +85,5 @@ class TabbarController: UITabBarController {
         // fix: iOS12 TabbarItem jump then back bug
         tabBar.isTranslucent = false
         viewControllers = items.map { $0.getController() }
-//        appearance()
-    }
-    
-    func appearance() {
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.sp.theme_red], for: .selected)
-        
-        if #available(iOS 13.0, *) {
-            tabBar.standardAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.black]
-            tabBar.standardAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor : UIColor.sp.theme_red]
-        }
     }
 }
